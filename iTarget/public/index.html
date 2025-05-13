@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>iTarget</title>
+
+  <!-- Font-Awesome 6 -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ─────────── PROFILE / LOGIN ─────────── -->
+<section id="profile" class="screen active">
+    <header class="hero hero--navy"><h1>ARCHER&nbsp;PROFILE</h1></header>
+    <main class="pad" id="profile-body"></main>
+  </section>
+
+<!---------------- HOME (join round) ---------------->
+<section id="home" class="screen">
+  <header class="hero"><h1>Join a Round</h1></header>
+  <main class="btn-stack">
+    <button class="role-btn" data-goto="recorder">
+      <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
+    </button>
+    <button class="role-btn" data-goto="archer">
+      <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
+    </button>
+  </main>
+</section>
+
+<!---------------- RECORDER ENTRY ---------------->
+<section id="recorder" class="screen">
+  <header class="hero"><h1>Score Entry</h1></header>
+  <main class="pad">
+    <form id="recorder-form" class="stack">
+      <label>Archer
+        <select id="sel-archer"></select>
+        <button type="button" id="add-archer" class="small">+ new</button>
+      </label>
+
+      <label>Date   <input type="date"  id="round-date"></label>
+      <label>Location <input type="text" id="round-loc"></label>
+
+      <label>End #   <input type="number" id="end-no" value="1" min="1"></label>
+      <label>Arrows <input type="text"  id="arrows"
+              placeholder="e.g. X 10 9 9 8 7"></label>
+
+      <button class="primary">Save End</button>
+      <div id="entry-confirm" class="ok-msg hidden">✅ saved</div>
+    </form>
+  </main>
+</section>
+
+<!---------------- ARCHER / ROUND DETAIL (old “scores”) ---------------->
+<section id="archer" class="screen">
+  <header class="hero"><h1>Round Scores</h1></header>
+  <main class="pad">
+    <form id="filter-bar" class="filter">
+      <input id="f-from" type="date">
+      <input id="f-to"   type="date">
+      <input id="f-loc"  type="text" placeholder="location">
+      <button>Go</button>
+    </form>
+    <ul id="score-list" class="score-cards"></ul>
+  </main>
+</section>
+
+<!---------------- PERSONAL BESTS ---------------->
+<section id="pbs" class="screen">
+  <header class="hero"><h1>Personal Bests</h1></header>
+  <main class="pad">
+    <div class="table-wrap"><table id="pb-table" class="table"></table></div>
+  </main>
+</section>
+
+<!---------------- CLUBS ---------------->
+<section id="clubs" class="screen">
+  <header class="hero"><h1>Club Scores</h1></header>
+  <main class="pad">
+    <label>Select club:
+      <select id="club-select"></select>
+    </label>
+
+    <div class="table-wrap"><table id="club-table" class="table"></table></div>
+  </main>
+</section>
+
+<!---------------- SCORE DETAIL (end-by-end) ---------------->
+<section id="detail" class="screen">
+  <header class="hero">
+    <button class="link" data-back="archer">&lt; back</button>
+    <h1 id="d-title"></h1>
+  </header>
+  <main class="pad">
+    <div class="table-wrap"><table id="d-table" class="table"></table></div>
+  </main>
+</section>
+
+<!---------------- BOTTOM NAV ---------------->
+<nav class="bottom-nav">
+  <button class="nav-btn" data-goto="home">
+    <i class="fa-solid fa-house"></i></button>
+
+  <button class="nav-btn" data-goto="recorder">
+    <i class="fa-solid fa-clipboard-list"></i></button>
+
+  <button class="nav-btn" id="target-btn">
+    <i class="fa-solid fa-bullseye"></i></button>
+
+  <button class="nav-btn" data-goto="pbs">
+    <i class="fa-solid fa-chart-column"></i></button>
+
+  <button class="nav-btn" data-goto="profile">
+    <i class="fa-solid fa-user"></i></button>
+</nav>
+
+<script src="script.js"></script>
+</body></html>

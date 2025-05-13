@@ -1,0 +1,120 @@
+/* ─────────────────────────────────────────
+   iTarget • global palette
+   (unchanged from the previous turn)
+   ───────────────────────────────────────── */
+   :root{
+    --white : #f4f7f5;
+    --dark  : #091029;
+    --grey  : #75828f;
+  
+    --navy  : #082f60;
+    --blue  : #1490c7;
+    --light-blue: #75b0cc;
+    --mid-blue  : #145692;
+    --teal  : #2c7c9c;
+  
+    --yellow: #f8ad1c;
+    --rust  : #c6492e;
+    --brown : #c48c44;
+  }
+  
+  /* ─────────────────────────────────────────
+     Reset / base
+     ───────────────────────────────────────── */
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,Roboto,Arial}
+  body,html{height:100%;background:var(--white);color:var(--dark)}
+  
+  /* centre-align most text by default */
+  h1,h2,h3,h4,h5,h6,p,th,td,label{ text-align:center; }
+  
+  /* ─────────────────────────────────────────
+     Screens
+     ───────────────────────────────────────── */
+  .screen{
+    display:none;flex-direction:column;
+    height:calc(100% - 60px);          /* nav space */
+    overflow:auto;
+  }
+  .screen.active{display:flex;}
+  
+  .hero{
+    padding:1rem 1.2rem;background:#fff;border-bottom:1px solid #ddd
+  }
+  .hero--navy{background:var(--navy);color:#fff}
+  
+  /* containers */
+  .pad      {padding:1.2rem;}
+  .btn-stack{padding:2rem;gap:1.4rem;display:flex;flex-direction:column;align-items:center;}
+  
+  .stack label{display:flex;flex-direction:column;gap:.25rem;margin-bottom:.85rem;}
+  .stack input{padding:.65rem;border:1px solid var(--grey);border-radius:5px;font-size:1rem;width:100%;}
+  label select{padding:.55rem;border:1px solid var(--grey);border-radius:5px;font-size:1rem;width:100%;}
+  
+  /* buttons */
+  .primary{
+    padding:.8rem;border:none;background:var(--blue);color:#fff;border-radius:6px;font-size:1rem;width:100%;
+  }
+  .small{border:none;background:none;color:var(--blue);margin-top:.4rem;cursor:pointer;font-size:.9rem}
+  
+  .role-btn{
+    border:2px solid var(--blue);background:#fff;padding:1.3rem 2.2rem;border-radius:10px;
+    display:flex;align-items:center;gap:.85rem;font-size:1.05rem;color:var(--blue);
+  }
+  .role-btn:active,.role-btn.selected{background:var(--blue);color:#fff}
+  
+  /* feedback msg */
+  .ok-msg{margin-top:.6rem;font-size:.9rem;color:var(--teal)}
+  .hidden{display:none}
+  
+  /* filters, cards, tables (unchanged except for centre text) */
+  .filter{
+    display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem;justify-content:center;
+  }
+  .filter input,.filter select{
+    flex:1;padding:.55rem;border:1px solid var(--grey);border-radius:4px;font-size:.85rem;min-width:110px;
+  }
+  .filter button{
+    padding:.6rem .95rem;border:none;background:var(--rust);color:#fff;border-radius:5px;
+  }
+  
+  /* cards */
+  .score-cards{
+    list-style:none;display:flex;flex-direction:column;gap:.9rem;align-items:center;
+  }
+  .score-cards li{
+    background:#fff;border:1px solid #ddd;padding:.95rem 1.2rem;border-radius:8px;
+    display:flex;align-items:center;justify-content:space-between;gap:1.2rem;min-width:260px;width:100%;
+  }
+  .score-val{font-size:1.55rem;font-weight:700;color:var(--navy)}
+  .details-link{font-size:.82rem;color:var(--blue);cursor:pointer}
+  
+  /* responsive table */
+  .table-wrap{overflow-x:auto;}
+  .table{
+    border-collapse:collapse;width:100%;font-size:.86rem;min-width:480px;
+  }
+  .table th,.table td{
+    border:1px solid #ccc;padding:.38rem .48rem;text-align:center;
+  }
+  .table th{background:var(--light-blue);color:#fff}
+  
+  /* ─────────────────────────────────────────
+     Bottom navigation
+     ───────────────────────────────────────── */
+  /* start off-canvas */
+  .bottom-nav{
+    position:fixed;left:0;right:0;bottom:0;height:60px;
+    background:#fff;border-top:1px solid #ddd;display:flex;
+    transform:translateY(100%);transition:transform .4s ease-out;
+  }
+  .bottom-nav.show{ transform:translateY(0); }
+  
+  .nav-btn{
+    flex:1;border:none;background:none;font-size:1.45rem;color:var(--grey);
+  }
+  .nav-active,.nav-btn:active{color:var(--rust)}
+  .nav-btn i.fa-bullseye{transform:scale(1.05);}          /* purely visual */
+  
+  /* generic blue link */
+  .link{background:none;border:none;color:var(--blue);font-size:.9rem;cursor:pointer}
+  
