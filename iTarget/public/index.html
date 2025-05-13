@@ -7,7 +7,20 @@
   <!-- Font-Awesome 6 -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> 
+  <!-- Material Design Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <!-- Tabler Icons -->
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <!-- href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$ICONS_VERSION/dist/tabler-icons.min.css" /> -->
+
   <link rel="stylesheet" href="styles.css" />
+
+
+
 </head>
 <body>
 
@@ -25,6 +38,7 @@
       <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
     </button>
     <button class="role-btn" data-goto="archer">
+      <img src="assets/BowAndArrow.svg"></img>
       <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
     </button>
   </main>
@@ -101,16 +115,28 @@
 <!---------------- BOTTOM NAV ---------------->
 <nav class="bottom-nav">
   <button class="nav-btn" data-goto="home">
-    <i class="fa-solid fa-house"></i></button>
+    <i class="fa-solid fa-house"></i>
+    <!-- <i class="bi bi-house-door-fill"></i></button> -->
 
   <button class="nav-btn" data-goto="recorder">
-    <i class="fa-solid fa-clipboard-list"></i></button>
-
+    <i class="fa-solid fa-clipboard-list"></i>
+    <!-- <span class="material-icons">leaderboard</span> -->
+  </button>
+  
   <button class="nav-btn" id="target-btn">
     <i class="fa-solid fa-bullseye"></i></button>
+    <!-- <i class="ti ti-target-arrow"></i></button> -->
 
   <button class="nav-btn" data-goto="pbs">
-    <i class="fa-solid fa-chart-column"></i></button>
+    <i class="fa-solid fa-chart-column"></i>
+    <!-- <svg> -->
+    <!--   <g> -->
+    <!--     <path class="cls-1" d="M27.09,22c.6-1.93.91-3.96.91-6.08V5.25L14,0,0,5.25v10.67c0,2.12.31,4.14.91,6.08h26.18Z"/> -->
+    <!--     <path class="cls-1" d="M2.67,26c.39.69.81,1.36,1.29,2.02,2.64,3.63,5.99,5.96,10.04,6.98,4.05-1.02,7.4-3.35,10.04-6.98.48-.66.9-1.34,1.29-2.02H2.67Z"/> -->
+    <!--   </g> -->
+    <!-- </svg> -->
+    </button>
+    <!-- <img src="assets/crest.svg"></img></button> -->
 
   <button class="nav-btn" data-goto="profile">
     <i class="fa-solid fa-user"></i></button>
