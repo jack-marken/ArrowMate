@@ -1,9 +1,9 @@
-# iTarget - Archery Victoria Application Repository for COS20031
+# iTarget - Archery Victoria Application Repository for COS20031 🏹
 
 iTarget is a mobile-first web application that helps Victorian archers join rounds, record scores, and track personal-best results.
 It runs entirely in the browser as a single-page app (SPA) and communicates with a lightweight Node + SQL API - Feenix MariaDB.
 
-Current Feature Set
+✨ Current Feature Set
 
 | Area                        | What it does today                                                                                                                                                                                                         |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -17,7 +17,7 @@ Current Feature Set
 | **Responsive design**       | Built mobile-first with centred headings, flexible tables, Font Awesome icons, and a sliding bottom navigation bar.                                                                                                        |
 | **API**                     | REST-style endpoints for `archers`, `rounds`, `scores`, plus derived routes (`personal-bests`, `club-bests`, `clubs`).                                                                                                     |
 
-Tech Stack:
+🖥️ Tech Stack:
 
 | Layer         | Choice                                      |
 | ------------- | ------------------------------------------- |
@@ -27,16 +27,17 @@ Tech Stack:
 | **Database**  | SQL Feenix MariaDB                          |
 | **Dev deps**  | `express`, `sql (feenix mariadb)`, `cors`, `body-parser` |
 
-iTarget/
-├── server.js      # Express API (runs on port 8080)
-├── db.sql         # schema to run out of Feenix MariaDB
-│
-└── public/        # static front-end bundle
-    ├── index.html
-    ├── styles.css
-    └── script.js
+| Path                | Purpose                              |
+| ------------------- | ------------------------------------ |
+| `iTarget/`          | Parent Folder
+| `server.js`         | Express API (runs on port 8080)      |
+| `db.sql`            | Schema                               |
+| `/public/`          | Easy File Reading                    |
+| `public/index.html` | Main HTML shell                      |
+| `public/styles.css` | Global styles (mobile-first palette) |
+| `public/script.js`  | SPA logic, navigation, data calls    |
 
-Road Map // Future Milestones
+🗺️ Road Map // Future Milestones
 
 | Phase                                  | Planned work                                                                     |
 | -------------------------------------- | -------------------------------------------------------------------------------- |
@@ -49,5 +50,5 @@ Road Map // Future Milestones
 | **📱 Native wrapper**                  | Package as PWA / Capacitor app to enhance readability and UX on iOS and Android. |
 
 
-**License**
+📜 **License**
 MIT - See LICENSE for full text
