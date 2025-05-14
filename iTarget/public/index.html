@@ -1,146 +1,92 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>iTarget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- TBD - Not Finalised -->
+  <title>iTarget</title> 
 
-  <!-- Font-Awesome 6 -->
+  <!-- Icon set (Font-Awesome 6) - Sourced Via AI initially -->
+  <!-- Can easily implement a fix across the board that swaps  -->
+  <!-- all icons to a different set (e.g. Image Icons for more customisation) -->
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"> 
-  <!-- Material Design Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-  <!-- Tabler Icons -->
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <!-- href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$ICONS_VERSION/dist/tabler-icons.min.css" /> -->
-
-  <link rel="stylesheet" href="styles.css" />
-
-
-
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- App styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
-<!-- ─────────── PROFILE / LOGIN ─────────── -->
+<!-----------------------------------------------------------------------
+  # LOGIN / PROFILE 
+------------------------------------------------------------------------>
 <section id="profile" class="screen active">
-    <header class="hero hero--navy"><h1>ARCHER&nbsp;PROFILE</h1></header>
-    <main class="pad" id="profile-body"></main>
-  </section>
+  <header class="hero hero--navy"><h1>ARCHER&nbsp;PROFILE</h1></header>
+  <main class="pad" id="profile-body"></main>
+</section>
 
-<!---------------- HOME (join round) ---------------->
+<!-----------------------------------------------------------------------
+  # HOME (4-quadrant layout) - Needs to be improved
+  # - Add a proper logo
+  # - Add a background image?
+  # - Add a clock?
+  # - Add a weather widget?
+  # - Add a greeting message?
+------------------------------------------------------------------------>
 <section id="home" class="screen">
-  <header class="hero"><h1>Join a Round</h1></header>
-  <main class="btn-stack">
-    <button class="role-btn" data-goto="recorder">
-      <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
-    </button>
-    <button class="role-btn" data-goto="archer">
-      <img src="assets/BowAndArrow.svg"></img>
-      <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
-    </button>
+  <header class="hero hero--navy big-title"><h1>iTarget</h1></header>
+
+  <main class="home-quad">
+    <!-- 1 top-left – greeting & live info -->
+    <div class="quad tl">
+      <h2>Welcome!</h2>
+      <p id="home-date"></p>
+      <p id="home-time"></p>
+      <p id="home-weather"></p>
+    </div>
+
+    <!-- 2  top-right – brand logo -->
+    <div class="quad tr">
+      <img src="assets/TempLogo.jpg" alt="logo" class="logo-placeholder">
+    </div>
+
+    <!-- 3  bottom-left – (reserved for future widgets) -->
+    <div class="quad bl"></div>
+
+    <!-- 4 bottom-right – account switch -->
+    <div class="quad br">
+      <button id="swap-account" class="primary swap-btn">Swap&nbsp;account</button>
+    </div>
   </main>
 </section>
 
-<!---------------- RECORDER ENTRY ---------------->
-<section id="recorder" class="screen">
-  <header class="hero"><h1>Score Entry</h1></header>
+<!-----------------------------------------------------------------------
+  # QUICK-ACTIONS (Recorder / Archer)
+------------------------------------------------------------------------>
+<section id="actions" class="screen">
+  <header class="hero"><h1>Select mode</h1></header>
   <main class="pad">
-    <form id="recorder-form" class="stack">
-      <label>Archer
-        <select id="sel-archer"></select>
-        <button type="button" id="add-archer" class="small">+ new</button>
-      </label>
-
-      <label>Date   <input type="date"  id="round-date"></label>
-      <label>Location <input type="text" id="round-loc"></label>
-
-      <label>End #   <input type="number" id="end-no" value="1" min="1"></label>
-      <label>Arrows <input type="text"  id="arrows"
-              placeholder="e.g. X 10 9 9 8 7"></label>
-
-      <button class="primary">Save End</button>
-      <div id="entry-confirm" class="ok-msg hidden">✅ saved</div>
-    </form>
+    <div class="btn-stack">
+      <button class="role-btn" data-goto="recorder">
+        <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
+      </button>
+      <button class="role-btn" data-goto="archer">
+        <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
+      </button>
+    </div>
   </main>
 </section>
 
-<!---------------- ARCHER / ROUND DETAIL (old “scores”) ---------------->
-<section id="archer" class="screen">
-  <header class="hero"><h1>Round Scores</h1></header>
-  <main class="pad">
-    <form id="filter-bar" class="filter">
-      <input id="f-from" type="date">
-      <input id="f-to"   type="date">
-      <input id="f-loc"  type="text" placeholder="location">
-      <button>Go</button>
-    </form>
-    <ul id="score-list" class="score-cards"></ul>
-  </main>
-</section>
-
-<!---------------- PERSONAL BESTS ---------------->
-<section id="pbs" class="screen">
-  <header class="hero"><h1>Personal Bests</h1></header>
-  <main class="pad">
-    <div class="table-wrap"><table id="pb-table" class="table"></table></div>
-  </main>
-</section>
-
-<!---------------- CLUBS ---------------->
-<section id="clubs" class="screen">
-  <header class="hero"><h1>Club Scores</h1></header>
-  <main class="pad">
-    <label>Select club:
-      <select id="club-select"></select>
-    </label>
-
-    <div class="table-wrap"><table id="club-table" class="table"></table></div>
-  </main>
-</section>
-
-<!---------------- SCORE DETAIL (end-by-end) ---------------->
-<section id="detail" class="screen">
-  <header class="hero">
-    <button class="link" data-back="archer">&lt; back</button>
-    <h1 id="d-title"></h1>
-  </header>
-  <main class="pad">
-    <div class="table-wrap"><table id="d-table" class="table"></table></div>
-  </main>
-</section>
-
-<!---------------- BOTTOM NAV ---------------->
+<!-----------------------------------------------------------------------
+  # BOTTOM NAVIGATION
+------------------------------------------------------------------------>
 <nav class="bottom-nav">
-  <button class="nav-btn" data-goto="home">
-    <i class="fa-solid fa-house"></i>
-    <!-- <i class="bi bi-house-door-fill"></i></button> -->
-
-  <button class="nav-btn" data-goto="recorder">
-    <i class="fa-solid fa-clipboard-list"></i>
-    <!-- <span class="material-icons">leaderboard</span> -->
-  </button>
-  
-  <button class="nav-btn" id="target-btn">
-    <i class="fa-solid fa-bullseye"></i></button>
-    <!-- <i class="ti ti-target-arrow"></i></button> -->
-
-  <button class="nav-btn" data-goto="pbs">
-    <i class="fa-solid fa-chart-column"></i>
-    <!-- <svg> -->
-    <!--   <g> -->
-    <!--     <path class="cls-1" d="M27.09,22c.6-1.93.91-3.96.91-6.08V5.25L14,0,0,5.25v10.67c0,2.12.31,4.14.91,6.08h26.18Z"/> -->
-    <!--     <path class="cls-1" d="M2.67,26c.39.69.81,1.36,1.29,2.02,2.64,3.63,5.99,5.96,10.04,6.98,4.05-1.02,7.4-3.35,10.04-6.98.48-.66.9-1.34,1.29-2.02H2.67Z"/> -->
-    <!--   </g> -->
-    <!-- </svg> -->
-    </button>
-    <!-- <img src="assets/crest.svg"></img></button> -->
-
-  <button class="nav-btn" data-goto="profile">
-    <i class="fa-solid fa-user"></i></button>
+  <button class="nav-btn" data-goto="home"     ><i class="fa-solid fa-house"></i></button>
+  <button class="nav-btn" data-goto="recorder" ><i class="fa-solid fa-clipboard-list"></i></button>
+  <button class="nav-btn center" data-goto="actions"><i class="fa-solid fa-bullseye"></i></button>
+  <button class="nav-btn" data-goto="pbs"      ><i class="fa-solid fa-chart-column"></i></button>
+  <button class="nav-btn" data-goto="profile"  ><i class="fa-solid fa-user"></i></button>
 </nav>
 
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
