@@ -3,40 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- TBD - Not Finalised -->
-  <title>iTarget</title> 
+  <title>ArrowMate</title>
 
-  <!-- Icon set (Font-Awesome 6) - Sourced Via AI initially -->
-  <!-- Can easily implement a fix across the board that swaps  -->
-  <!-- all icons to a different set (e.g. Image Icons for more customisation) -->
+  <!-- Font-Awesome (icons) -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- App styles -->
+  <!-- Global styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-<!-----------------------------------------------------------------------
-  # LOGIN / PROFILE 
------------------------------------------------------------------------->
+<!----------------------------------------------------------------
+  LOGIN / PROFILE
+----------------------------------------------------------------->
 <section id="profile" class="screen active">
   <header class="hero hero--navy"><h1>ARCHER&nbsp;PROFILE</h1></header>
-  <main class="pad" id="profile-body"></main>
+  <main  id="profile-body" class="pad"></main>
 </section>
 
-<!-----------------------------------------------------------------------
-  # HOME (4-quadrant layout) - Needs to be improved
-  # - Add a proper logo
-  # - Add a background image?
-  # - Add a clock?
-  # - Add a weather widget?
-  # - Add a greeting message?
------------------------------------------------------------------------->
+<!----------------------------------------------------------------
+  HOME – four-quadrant welcome screen
+----------------------------------------------------------------->
 <section id="home" class="screen">
-  <header class="hero hero--navy big-title"><h1>iTarget</h1></header>
+  <header class="hero hero--navy big-title"><h1>ArrowMate</h1></header>
 
   <main class="home-quad">
-    <!-- 1 top-left – greeting & live info -->
+    <!-- TL: greeting + live data -->
     <div class="quad tl">
       <h2>Welcome!</h2>
       <p id="home-date"></p>
@@ -44,47 +36,151 @@
       <p id="home-weather"></p>
     </div>
 
-    <!-- 2  top-right – brand logo -->
+    <!-- TR: logo -->
     <div class="quad tr">
-      <img src="assets/TempLogo.jpg" alt="logo" class="logo-placeholder">
+      <img src="assets/ArrowMateLogo.jpg" class="logo" alt="logo">
     </div>
 
-    <!-- 3  bottom-left – (reserved for future widgets) -->
+    <!-- BL: reserved -->
     <div class="quad bl"></div>
 
-    <!-- 4 bottom-right – account switch -->
+    <!-- BR: quick account swap -->
     <div class="quad br">
       <button id="swap-account" class="primary swap-btn">Swap&nbsp;account</button>
     </div>
   </main>
 </section>
 
-<!-----------------------------------------------------------------------
-  # QUICK-ACTIONS (Recorder / Archer)
------------------------------------------------------------------------->
+<!----------------------------------------------------------------
+  ACTION PICKER – Archer / Recorder
+----------------------------------------------------------------->
 <section id="actions" class="screen">
-  <header class="hero"><h1>Select mode</h1></header>
+  <header class="hero hero--navy">
+    <h1>JOIN&nbsp;A&nbsp;RANGE</h1>
+    <p class="subtitle">What is your role?</p>
+  </header>
+
   <main class="pad">
-    <div class="btn-stack">
-      <button class="role-btn" data-goto="recorder">
-        <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
-      </button>
-      <button class="role-btn" data-goto="archer">
-        <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
-      </button>
+    <button class="mega-btn" data-goto="archer-setup">
+      <i class="fa-solid fa-bow-arrow"></i><span>ARCHER</span>
+    </button>
+
+    <button class="mega-btn teal" data-goto="recorder-select">
+      <i class="fa-solid fa-clipboard-list"></i><span>RECORDER</span>
+    </button>
+  </main>
+</section>
+
+<!----------------------------------------------------------------
+  ARCHER FLOW
+----------------------------------------------------------------->
+<!-- step-1: details -->
+<section id="archer-setup" class="screen">
+  <header class="hero"><h1>Archer&nbsp;details</h1></header>
+  <main class="pad">
+    <form id="archer-form" class="stack">
+      <label>Use existing
+        <select id="archer-existing"><option value="">-- none --</option></select>
+      </label>
+
+      <!-- new-archer fields (auto-hidden when existing chosen) -->
+      <div id="archer-fields">
+        <label>First name    <input id="a-fname" required></label>
+        <label>Last  name    <input id="a-lname" required></label>
+        <label>Membership ID <input id="a-id"></label>
+        <label>Date of birth <input type="date" id="a-dob" required></label>
+
+        <label>Class
+          <select id="a-class" required>
+            <option>Under 14</option><option>Under 16</option><option>Under 18</option>
+            <option>Under 21</option><option>Open</option><option>50 +</option>
+            <option>60 +</option><option>70 +</option>
+          </select>
+        </label>
+
+        <label>Division
+          <select id="a-div" required>
+            <option>Recurve</option><option>Compound</option><option>Longbow</option>
+            <option>Barebow Recurve</option><option>Barebow Compound</option>
+          </select>
+        </label>
+      </div>
+
+      <button class="primary">Confirm</button>
+    </form>
+  </main>
+</section>
+
+<!-- step-2: choose championship -->
+<section id="champ-select" class="screen">
+  <header class="hero"><h1>Select&nbsp;championship</h1></header>
+  <main class="pad"><ul id="champ-list" class="list"></ul></main>
+</section>
+
+<!-- step-3: range info -->
+<section id="range-info" class="screen">
+  <header class="hero"><h1>Range&nbsp;details</h1></header>
+  <main id="range-body" class="pad"></main>
+</section>
+
+<!----------------------------------------------------------------
+  RECORDER FLOW
+----------------------------------------------------------------->
+<!-- pick archer -->
+<section id="recorder-select" class="screen">
+  <header class="hero"><h1>Pick&nbsp;archer</h1></header>
+  <main class="pad">
+    <label>Active archers
+      <select id="record-archer"></select>
+    </label>
+    <button id="rec-sel-btn" class="primary">Confirm</button>
+  </main>
+</section>
+
+<!-- keypad -->
+<section id="recorder-score" class="screen">
+  <header class="hero"><h1 id="score-head"></h1></header>
+  <main class="pad">
+    <div id="score-strip"  class="strip"></div>
+    <div id="score-total"  class="total-box">0</div>
+    <div id="num-grid"     class="num-grid"></div>
+
+    <div class="flex gap">
+      <button id="score-cancel" class="secondary flex-1">Undo</button>
+      <button id="score-save"   class="primary  flex-1">Save&nbsp;end</button>
     </div>
   </main>
 </section>
 
-<!-----------------------------------------------------------------------
-  # BOTTOM NAVIGATION
------------------------------------------------------------------------->
+<!-- review -->
+<section id="recorder-review" class="screen">
+  <header class="hero"><h1>Review&nbsp;score</h1></header>
+  <main class="pad">
+    <table id="review-table" class="table"></table>
+    <button id="review-done" class="primary" style="margin-top:1.2rem;">Save&nbsp;&amp;&nbsp;Exit</button>
+  </main>
+</section>
+
+<!----------------------------------------------------------------
+  LEADERBOARD
+----------------------------------------------------------------->
+<section id="leaderboard" class="screen">
+  <header class="hero"><h1>Leaderboard</h1></header>
+  <main class="pad board">
+    <aside class="board-list"><ul id="lb-list"></ul></aside>
+    <section id="lb-detail" class="board-detail"></section>
+  </main>
+</section>
+
+<!----------------------------------------------------------------
+  BOTTOM NAV
+----------------------------------------------------------------->
 <nav class="bottom-nav">
-  <button class="nav-btn" data-goto="home"     ><i class="fa-solid fa-house"></i></button>
-  <button class="nav-btn" data-goto="recorder" ><i class="fa-solid fa-clipboard-list"></i></button>
+  <button class="nav-btn" data-goto="home"        ><i class="fa-solid fa-house"></i></button>
+  <button class="nav-btn" data-goto="recorder"    ><i class="fa-solid fa-clipboard-list"></i></button>
   <button class="nav-btn center" data-goto="actions"><i class="fa-solid fa-bullseye"></i></button>
-  <button class="nav-btn" data-goto="pbs"      ><i class="fa-solid fa-chart-column"></i></button>
-  <button class="nav-btn" data-goto="profile"  ><i class="fa-solid fa-user"></i></button>
+  <button class="nav-btn" data-goto="leaderboard" ><i class="fa-solid fa-trophy"></i></button>
+  <button class="nav-btn" data-goto="profile"     ><i class="fa-solid fa-user"></i></button>
 </nav>
 
 <script src="script.js"></script>

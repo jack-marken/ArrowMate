@@ -1,5 +1,5 @@
 /*─────────────────────────────────────────────────────────────────────────
-  iTarget – Express REST API  (MariaDB)
+  ArrowMate – Express REST API  (MariaDB)
   This is an AI generated code snippet for a simple Express REST API
   that interacts with a MariaDB database. It provides templates for
   CRUD operations on archers, rounds, and scores. The API also includes
@@ -98,4 +98,4 @@ app.get('/api/club-bests', async(req,res)=>{
 
 /*──────────────── SERVER ────────────────*/
 const PORT = 8080;
-app.listen(PORT, ()=> console.log(`▶ iTarget API  •  http://localhost:${PORT}`));
+app.listen(PORT, ()=> console.log(`▶ ArrowMate API  •  http://localhost:${PORT}`));

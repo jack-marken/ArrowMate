@@ -1,11 +1,5 @@
 /*────────────────────────────────────────────────────────────────────────
-  iTarget  –  Single-Page Front-End (No Active Frameworks - can be included at a later date)
-  ─  Features  ────────────────────────────────────────────────────────────
-  • Credential gate & local-storage session
-  • Live date / time / Melbourne weather on Home screen
-  • Recorder → end-by-end score entry (auto-total)
-  • Personal-best & club-best views
-  • Robust   doLogout()   shared by “Swap” + profile “Log out”
+  ArrowMate  –  Single-Page Front-End
 ─────────────────────────────────────────────────────────────────────────*/
 
 /*== Utility ============================================================*/
@@ -254,3 +248,146 @@ $('#club-select')?.addEventListener('change', async e=>{
     <tr><td>${r.name}</td><td>${r.equipment}</td><td>${r.shot_on}</td><td>${r.best_total}</td></tr>`).join('');
   $('#club-table').innerHTML = `<thead><tr><th>Archer</th><th>Equipment</th><th>Shot on</th><th>Total</th></tr></thead><tbody>${rows}</tbody>`;
 });
+
+/*─────────────────────────────────────────────────────────────────
+  Archer flow improvements
+─────────────────────────────────────────────────────────────────*/
+const championships=[{id:1,name:'State Indoor 720',distance:'18m',range:'Indoor 2'},
+                     {id:2,name:'Regional 1440',distance:'70m',range:'Range A'}];
+const activeArchers=[];   // objects {name, class, div, dob}
+
+function resetArcherForm(){
+  $('#archer-existing').value='';
+  $('#a-fname').value='';$('#a-lname').value='';
+  $('#a-id').value=''; $('#a-dob').value='';
+  $('#a-class').selectedIndex=0; $('#a-div').selectedIndex=0;
+  $('#archer-fields').style.display='block';
+}
+document.querySelector('[data-goto="archer-setup"]').addEventListener('click', resetArcherForm);
+
+$('#archer-existing').onchange = e=>{
+  $('#archer-fields').style.display = e.target.value ? 'none':'block';
+};
+
+$('#archer-form').onsubmit = e=>{
+  e.preventDefault();
+  const existing = $('#archer-existing').value;
+  let archer;
+  if(existing){
+    archer = activeArchers.find(a=>a.name===existing);
+  }else{
+    /* validate new entry */
+    if(!$('#a-fname').value.trim()||!$('#a-lname').value.trim()||!$('#a-dob').value)
+      return alert('Fill all required fields');
+    archer = {
+      name  : `${$('#a-fname').value.trim()} ${$('#a-lname').value.trim()}`,
+      id    : $('#a-id').value.trim(),
+      dob   : $('#a-dob').value,
+      class : $('#a-class').value,
+      div   : $('#a-div').value
+    };
+    activeArchers.push(archer);
+    refreshPickers();
+  }
+  currentArcherSession = archer;
+  show('champ-select');
+};
+
+/* refresh dropdowns whenever list changes */
+function refreshPickers(){
+  const opts = activeArchers.map(a=>`<option>${a.name}</option>`).join('');
+  $('#archer-existing').innerHTML = '<option value="">-- none --</option>'+opts;
+  $('#record-archer').innerHTML   = '<option value="">-- select --</option>'+opts;
+}
+refreshPickers();
+
+/*──────────────── Recorder flow fixes ───────────*/
+let recArcher,end=1,arrows=[],ends=[];
+$('#rec-sel-btn').onclick = ()=>{
+  const name=$('#record-archer').value;
+  recArcher = activeArchers.find(a=>a.name===name);
+  if(!recArcher) return alert('Pick an archer');
+  end=1; arrows=[]; ends=[];
+  $('#score-head').textContent=`${recArcher.name} • End 1`;
+  setKeypad(); updateStrip();
+  show('recorder-score');
+};
+
+function setKeypad(){
+  const keys=['X','10','9','8','7','6','5','4','3','2','1','M'];
+  $('#num-grid').innerHTML = keys.map(k=>`<button class="${colour(k)}">${k}</button>`).join('');
+}
+
+function updateStrip(){
+  const boxes = Array.from({length:6},(_,i)=>arrows[i]??'');
+  $('#score-strip').innerHTML = boxes.map(s=>`<span class="${colour(s)}">${s}</span>`).join('');
+  $('#score-total').textContent = arrows.reduce((t,a)=>t+(a==='X'?10:(+a||0)),0);
+}
+
+$('#num-grid').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  if(arrows.length<6){ arrows.push(e.target.textContent); updateStrip(); }
+});
+$('#score-cancel').addEventListener('click', ()=>{ arrows.pop(); updateStrip(); });
+
+$('#score-save').addEventListener('click', ()=>{
+  if(arrows.length!==6) return alert('Need 6 arrows');
+  ends.push({end,total:+$('#score-total').textContent,arrows:[...arrows]});
+  arrows=[]; end++;
+  if(end>5){ buildReview(); show('recorder-review'); }
+  else{
+    $('#score-head').textContent = `${recArcher.name} • End ${end}`;
+    updateStrip();
+  }
+});
+
+/* review */
+function buildReview(){
+  const rows = ends.map(e=>`
+    <tr><td>End ${e.end}</td>`+
+      e.arrows.map(a=>`<td class="${colour(a)}">${a}</td>`).join('')+
+      `<td>${e.total}</td></tr>`).join('');
+  $('#review-table').innerHTML = `<thead><tr><th></th><th colspan="6">Arrows</th><th>Total</th></tr></thead><tbody>${rows}</tbody>`;
+}
+$('#review-done').addEventListener('click',()=>{
+  alert('Score saved (stub).'); show('home');
+});
+
+/* fire custom show event each time recorder-select becomes active - Unsure about usability as of the moment */
+const observer = new MutationObserver(()=>{
+  if($('#recorder-select').classList.contains('active')){
+    $('#recorder-select').dispatchEvent(new Event('show'));
+  }
+});
+observer.observe($('#recorder-select'),{attributes:true,attributeFilter:['class']});
+
+/*──────────────── Leaderboard mock ───────────────*/
+const lbData=[
+  {name:'Jacob Shiel',  pts:956, avatar:'TempJacob.jpg', ranges:[320,318,318]},
+  {name:'Jack Marken',  pts:903, avatar:'TempUser.jpg',  ranges:[300,301,302]},
+  {name:'Patrick Lunney',pts:881,avatar:'TempUser.jpg',  ranges:[295,293,293]},
+  {name:'Max Pattison', pts:860, avatar:'TempUser.jpg',  ranges:[287,286,287]},
+  {name:'Tom Huynh',    pts:845, avatar:'TempUser.jpg',  ranges:[282,281,282]}
+];
+
+lbData.forEach((a,i)=>$('#lb-list').insertAdjacentHTML('beforeend',`
+  <li data-i="${i}"><span class="rank">${i+1}</span>
+    <img class="avatar" src="assets/${a.avatar}" alt="">
+    <span>${a.name}</span>
+    <span class="pts">${a.pts}</span></li>`));
+
+$('#lb-list').onclick = e=>{
+  const li=e.target.closest('li'); if(!li) return;
+  const a = lbData[li.dataset.i];
+  const rows = ['Range 1','Range 2','Range 3']
+               .map((label,i)=>`<tr><td>${label}</td><td>${a.ranges[i]}</td></tr>`)
+               .join('');
+  $('#lb-detail').innerHTML = `
+    <h3>${a.name}</h3>
+    <p><img src="assets/TempAus.jpg" class="flag-placeholder">&nbsp;Australia</p><br>
+    <table class="table">
+      <thead><tr><th>Series</th><th>Total</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><th>Overall</th><th>${a.pts}</th></tr></tfoot>
+    </table>`;
+};
