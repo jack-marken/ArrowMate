@@ -33,6 +33,14 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
   filter: invert(45%) sepia(25%) saturate(3024%) hue-rotate(167deg) brightness(91%) contrast(84%);
 }
 
+.filter-red {
+  filter: invert(40%) sepia(89%) saturate(3795%) hue-rotate(349deg) brightness(94%) contrast(93%);
+}
+
+.filter-yellow {
+  filter: invert(85%) sepia(24%) saturate(6974%) hue-rotate(347deg) brightness(104%) contrast(94%);
+}
+
 /*──────────────── HOME QUADRANT GRID ─────────*/
 .home-quad{
   display:grid;grid-template:1fr 1fr / 1fr 1fr;gap:.6rem;
@@ -52,7 +60,8 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 }
 .nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--grey);cursor:pointer}
 .nav-btn.center i{font-size:1.9rem}
-.nav-active,.nav-btn:active{color:var(--rust)}
+.nav-btn--target {color:var(--red)}
+.nav-active,.nav-btn:active{color:var(--yellow)}
 
 /*──────────────── GENERIC FORMS & BUTTONS ────*/
 .stack label{display:flex;flex-direction:column;gap:.25rem;margin-bottom:.85rem}
