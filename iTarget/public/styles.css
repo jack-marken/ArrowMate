@@ -28,6 +28,11 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .screen{display:none;flex-direction:column;height:calc(100% - 60px);overflow:auto}
 .screen.active{display:flex}
 
+/*──────────────── SVG FILTERS ────────────────*/
+.filter-blue {
+  filter: invert(45%) sepia(25%) saturate(3024%) hue-rotate(167deg) brightness(91%) contrast(84%);
+}
+
 /*──────────────── HOME QUADRANT GRID ─────────*/
 .home-quad{
   display:grid;grid-template:1fr 1fr / 1fr 1fr;gap:.6rem;
@@ -75,6 +80,8 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
   color:var(--blue);
   font-size: 1.8rem; /* (This doesn't work) TODO: figure out how to increase the icon size */
 }
+
+.mega-btn img { height:3rem; }
 
 /* .mega-btn.teal{background:var(--teal)} */
 .mega-btn i{font-size:2.2rem}
