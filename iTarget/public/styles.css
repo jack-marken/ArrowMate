@@ -63,12 +63,20 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .swap-btn{width:140px;margin:0;padding:.55rem 0;font-size:.92rem}
 
 .mega-btn{
-  display:flex;align-items:center;justify-content:center;gap:1rem;
-  width:100%;margin:1.2rem 0;padding:2.4rem 1rem;
-  font-size:1.5rem;border:2px solid var(--teal);border-radius:12px;cursor:pointer;color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+  width:100%;margin:1.2rem 0;padding:1rem 1rem;
+  font-size:1.2rem;
+  border:2px solid var(--blue);border-radius:12px;border-bottom: 0.5rem solid var(--blue);
+  cursor:pointer;color:#000;
   background:var(--white)
 }
-.mega-btn.teal{background:var(--teal)}
+
+.mega-btn i { 
+  color:var(--blue);
+  font-size: 1.8rem; /* (This doesn't work) TODO: figure out how to increase the icon size */
+}
+
+/* .mega-btn.teal{background:var(--teal)} */
 .mega-btn i{font-size:2.2rem}
 
 /*──────────────── RECORDER KEYPAD ────────────*/
