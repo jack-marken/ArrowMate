@@ -111,7 +111,8 @@ $('#swap-account').onclick = doLogout;
 currentUser = loadSession();
 if(currentUser){
   nav.classList.add('show');
-  show('home');
+  // show('home');
+  show('your-scores'); // Temporary for development
 }
 renderProfile();
 
