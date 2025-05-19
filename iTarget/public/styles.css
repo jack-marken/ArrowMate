@@ -11,15 +11,17 @@
   --navy:#082f60;   --blue:#1490c7; --teal:#2c7c9c;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family:Bahnshrift,system-ui,Roboto,Arial}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,system-ui,Arial}
 html,body{height:100%;background:var(--white);color:var(--dark)}
 /* h1,h2,h3,h4,h5,h6,p,th,td,label{text-align:center} */
 
 /*──────────────── HERO HEADERS ──────────────*/
-.hero{padding:1rem 1.2rem;border-bottom:1px solid #ddd;background:#fff; text-align:left;}
+.hero {padding:1.5rem 1.2rem 1rem 1.2rem;background:#fff; text-align:left;}
+.hero--simple {background:#fff;border-bottom:1px solid #ddd;color:var(--black);}
 .hero--white-blue {background:#fff; color:var(--blue);}
 .hero--navy {background:var(--navy); color:#fff}
 .hero--red {background:var(--red); color: #fff}
+.hero--short {padding-top:1rem; padding-bottom:1rem; text-align:center;}
 .hero--tall {padding-top:3rem;padding-bottom:1.5rem;}
 .big-title h1{font-size:1.9rem;letter-spacing:.8px}
 .subtitle{font-size:1rem;margin-top:.45rem;opacity:.85}
