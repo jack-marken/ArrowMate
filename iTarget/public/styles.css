@@ -3,7 +3,7 @@
 ──────────────────────────────────────────────────────────────────*/
 :root{
   /* --white:#f4f7f5; - Pure white background feels less cluttered (inspired by facebook/youtube/a few others) */
-  --white:#ffffff;  --dark:#091029; --slate:#75828f;
+  --off-white:#f4f7f5; --white:#ffffff;  --dark:#091029; --slate:#75828f;
   --dark-grey:#8d8c8f; --light-grey:#d2d0d4;
 
   --red:#e84623;    --rust:#c6492e;
@@ -17,6 +17,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 
 /*──────────────── HERO HEADERS ──────────────*/
 .hero{padding:1rem 1.2rem;border-bottom:1px solid #ddd;background:#fff; text-align:left;}
+.hero--white-blue {background:#fff; color:var(--blue);}
 .hero--navy {background:var(--navy); color:#fff}
 .hero--red {background:var(--red); color: #fff}
 .hero--tall {padding-top:3rem;padding-bottom:1.5rem;}
