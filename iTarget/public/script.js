@@ -365,7 +365,7 @@ observer.observe($('#recorder-select'),{attributes:true,attributeFilter:['class'
 /*──────────────── Leaderboard mock ───────────────*/
 const lbData=[
   {name:'Jacob Shiel',  pts:956, avatar:'TempJacob.jpg', ranges:[320,318,318]},
-  {name:'Jack Marken',  pts:903, avatar:'TempUser.jpg',  ranges:[300,301,302]},
+  {name:'Jack Marken',  pts:903, avatar:'TempJack.jpg',  ranges:[300,301,302]},
   {name:'Patrick Lunney',pts:881,avatar:'TempUser.jpg',  ranges:[295,293,293]},
   {name:'Max Pattison', pts:860, avatar:'TempUser.jpg',  ranges:[287,286,287]},
   {name:'Tom Huynh',    pts:845, avatar:'TempUser.jpg',  ranges:[282,281,282]}
