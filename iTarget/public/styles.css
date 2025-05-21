@@ -30,8 +30,13 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .pad{padding:1.2rem}
 .screen{display:none;flex-direction:column;height:calc(100% - 60px);overflow:auto}
 .screen.active{display:flex}
+.flex-column {display: flex;flex-direction:column}
+.flex-row {display: flex;flex-direction:row;}
 .flex-start{align-items:start;}
 .flex-end{align-items:end;}
+
+/*──────────────── COLOUR UTILITIES ───────────*/
+.text-grey {color:var(--dark-grey)}
 
 /*──────────────── SVG FILTERS ────────────────*/
 .filter-blue {
@@ -69,7 +74,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .nav-active,.nav-btn:active{color:var(--yellow)}
 
 /*──────────────── GENERIC FORMS & BUTTONS ────*/
-.stack label{font-size:1.2rem;display:flex;flex-direction:column;gap:.25rem;margin-top:1rem;margin-bottom:.85rem}
+.stack label, .stack p {font-size:1.2rem;display:flex;flex-direction:column;gap:.25rem;margin-top:1rem;margin-bottom:.85rem}
 .stack input,label select{padding:.65rem;border:1px solid var(--light-grey);border-radius:5px;font-size:1rem;width:100%}
 .stack input[type="date"] { border: none; border-radius: 0px; border-bottom: 2px solid var(--light-grey); }
 
@@ -82,7 +87,6 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .swap-btn{width:140px;margin:0;padding:.55rem 0;font-size:.92rem}
 
 .card {
-  display:flex;
   width:100%;margin:1.2rem 0;padding:1rem;
   font-size:1.2rem;
   border:1px solid var(--dark-grey);border-radius:8px;
