@@ -30,10 +30,10 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .pad{padding:1.2rem}
 .screen{display:none;flex-direction:column;height:calc(100% - 60px);overflow:auto}
 .screen.active{display:flex}
-.flex-column {display: flex;flex-direction:column}
-.flex-row {display: flex;flex-direction:row;}
-.flex-start{align-items:start;}
-.flex-end{align-items:end;}
+.flex-column {display:flex;flex-direction:column}
+.flex-row {display:flex;flex-direction:row;justify-content:space-between;}
+.flex-start{text-align:left;align-items:start;}
+.flex-end{text-align:right;align-items:end;}
 
 /*──────────────── COLOUR UTILITIES ───────────*/
 .text-grey {color:var(--dark-grey)}
@@ -91,13 +91,18 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
   font-size:1.2rem;
   border:1px solid var(--dark-grey);border-radius:8px;
   cursor:pointer;color:#000;
-  background:var(--white)
+  background:var(--white);
+  /* border:2px solid var(--dark-grey); */
+  border-radius:12px;
 }
 
-.card-column {
+.card--underlined {border-bottom: 0.5rem solid var(--dark-grey);}
+.card--blue {border-color: var(--blue)}
+.card--yellow {border-color: var(--yellow)}
+
+.card-section {
   display:flex;
   flex: 1 1 100%;
-  flex-direction:column;
   gap:.5rem;
   padding:0;
   margin:0;

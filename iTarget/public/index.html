@@ -82,24 +82,24 @@
     <hr class="line-break" />
 
     <div class="pad">
-      <button class="card" data-goto="archer-setup">
-        <div class="card-column flex-start">
+      <button class="card flex-row" data-goto="archer-setup">
+        <div class="card-section flex-column flex-start">
           <p>27/12/2015</p>
           <p><i class="fa-solid fa-bullseye"></i> Drake</p>
           <p>Recurve</p>
         </div>
-        <div class="card-column flex-end">
+        <div class="card-section flex-column flex-end">
           <h1>754</h1>
           <a>View details <i class="bi bi-caret-right-fill"></i></a>
         </div>
       </button>
-      <button class="card" data-goto="archer-setup">
-        <div class="card-column flex-start">
+      <button class="card flex-row" data-goto="archer-setup">
+        <div class="card-section flex-column flex-start">
           <p>27/12/2015</p>
           <p><i class="fa-solid fa-bullseye"></i> Launceston</p>
           <p>Recurve</p>
         </div>
-        <div class="card-column flex-end">
+        <div class="card-section flex-column flex-end">
           <h1>511</h1>
           <a>View details <i class="bi bi-caret-right-fill"></i></a>
         </div>
@@ -131,76 +131,87 @@
 </section>
 
 <!----------------------------------------------------------------
-  ARCHER FLOW
+  ARCHER ROUND SETUP
 ----------------------------------------------------------------->
 <!-- step-1: details -->
-<section id="archer-setup" class="screen">
+<section id="archer-round-setup" class="screen">
   <header class="hero hero--short hero--simple"><h3>JOIN&nbsp;A&nbsp;RANGE</h3></header>
   <main class="pad">
     <form id="archer-form" class="stack">
       <p>Name: <span class="text-grey">Jacob Shiel</span></p>
-      <!-- <label>Use existing -->
-        <!-- <select id="archer-existing"><option value="">-- none --</option></select> -->
-      <!-- </label> -->
       <label>Division:
         <select id="division" required>
             <option>Recurve</option><option>Compound</option><option>Longbow</option>
             <option>Barebow Recurve</option><option>Barebow Compound</option>
         </select>
       </label>
+    </form>
 
-      <div class="pad">
-        <!-- <button class="card flex-column" data-goto="archer-setup"> -->
-          <!-- <p>HEYY HIII</p> -->
-          <!-- <p>THEREE</p> -->
-          <!-- <div class="card-column flex-start"> -->
-          <!--   <p>27/12/2015</p> -->
-          <!--   <p><i class="fa-solid fa-bullseye"></i> Drake</p> -->
-          <!--   <p>Recurve</p> -->
-          <!-- </div> -->
-          <!-- <div class="card-column flex-end"> -->
-          <!--   <h1>754</h1> -->
-          <!--   <a>View details <i class="bi bi-caret-right-fill"></i></a> -->
-          <!-- </div> -->
-        <!-- </button> -->
-        <!-- <button class="card" data-goto="archer-setup"> -->
-          <!-- <div class="card-column flex-start"> -->
-          <!--   <p>27/12/2015</p> -->
-          <!--   <p><i class="fa-solid fa-bullseye"></i> Launceston</p> -->
-          <!--   <p>Recurve</p> -->
-          <!-- </div> -->
-          <!-- <div class="card-column flex-end"> -->
-          <!--   <h1>511</h1> -->
-          <!--   <a>View details <i class="bi bi-caret-right-fill"></i></a> -->
-          <!-- </div> -->
-        <!-- </button> -->
+    <button class="card card--underlined card--yellow" data-goto="archer-setup">
+      <div class="card-section flex-row">
+        <!-- <div class="card-section flex-column"> -->
+        <div class="flex-start"><h3>ID: 2</h3></div>
+        <div class="flex-end"><h3>End 2/5</h3></div>
+        <!-- </div> -->
       </div>
+      <div class="card-section flex-column flex-start text-grey">
+        <p><i class="fa-solid fa-bullseye" /></i> Launceston</p>
+        <p>Open Female Compound</p>
+      </div>
+    </button>
+    <button class="card card--underlined" data-goto="archer-setup">
+      <div class="card-section flex-row">
+        <!-- <div class="card-section flex-column"> -->
+        <div class="flex-start"><h3>ID: 2</h3></div>
+        <div class="flex-end"><h3>End 2/5</h3></div>
+        <!-- </div> -->
+      </div>
+      <div class="card-section flex-column flex-start text-grey">
+        <p><i class="fa-solid fa-bullseye" /></i> Launceston</p>
+        <p>Open Female Compound</p>
+      </div>
+    </button>
+  </main>
+</section>
+
+
+<!----------------------------------------------------------------
+  ARCHER FLOW
+----------------------------------------------------------------->
+<!-- step-1: details -->
+<section id="archer-setup" class="screen">
+  <header class="hero"><h1>Archer&nbsp;details</h1></header>
+  <main class="pad">
+    <form id="archer-form" class="stack">
+      <label>Use existing
+        <select id="archer-existing"><option value="">-- none --</option></select>
+      </label>
 
       <!-- new-archer fields (auto-hidden when existing chosen) -->
-      <!-- <div id="archer-fields"> -->
-      <!--   <label>First name    <input id="a-fname" required></label> -->
-      <!--   <label>Last  name    <input id="a-lname" required></label> -->
-      <!--   <label>Membership ID <input id="a-id"></label> -->
-      <!--   <label>Date of birth <input type="date" id="a-dob" required></label> -->
+      <div id="archer-fields">
+        <label>First name    <input id="a-fname" required></label>
+        <label>Last  name    <input id="a-lname" required></label>
+        <label>Membership ID <input id="a-id"></label>
+        <label>Date of birth <input type="date" id="a-dob" required></label>
 
-      <!--   <label>Class -->
-      <!--     <select id="a-class" required> -->
-      <!--       <option>Under 14</option><option>Under 16</option><option>Under 18</option> -->
-      <!--       <option>Under 21</option><option>Open</option><option>50 +</option> -->
-      <!--       <option>60 +</option><option>70 +</option> -->
-      <!--     </select> -->
-      <!--   </label> -->
+        <label>Class
+          <select id="a-class" required>
+            <option>Under 14</option><option>Under 16</option><option>Under 18</option>
+            <option>Under 21</option><option>Open</option><option>50 +</option>
+            <option>60 +</option><option>70 +</option>
+          </select>
+        </label>
 
-      <!--   <label>Division -->
-      <!--     <select id="a-div" required> -->
-      <!--       <option>Recurve</option><option>Compound</option><option>Longbow</option> -->
-      <!--       <option>Barebow Recurve</option><option>Barebow Compound</option> -->
-      <!--     </select> -->
-      <!--   </label> -->
-      <!-- </div> -->
+        <label>Division
+          <select id="a-div" required>
+            <option>Recurve</option><option>Compound</option><option>Longbow</option>
+            <option>Barebow Recurve</option><option>Barebow Compound</option>
+          </select>
+        </label>
+      </div>
 
-      <!-- <button class="primary">Confirm</button> -->
-    <!-- </form> -->
+      <button class="primary">Confirm</button>
+    </form>
   </main>
 </section>
 

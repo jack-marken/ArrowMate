@@ -112,7 +112,8 @@ currentUser = loadSession();
 if(currentUser){
   nav.classList.add('show');
   // show('home');
-  show('your-scores'); // Temporary for development
+  show('archer-round-setup'); // Temporary for development
+  // show('your-scores');
 }
 renderProfile();
 
