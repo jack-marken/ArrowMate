@@ -33,7 +33,9 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .flex-column {display:flex;flex-direction:column}
 .flex-row {display:flex;flex-direction:row;justify-content:space-between;}
 .flex-start{text-align:left;align-items:start;}
+.flex-center{text-align:center;align-items:center;}
 .flex-end{text-align:right;align-items:end;}
+.flex-grow {flex-grow:1;}
 
 /*──────────────── COLOUR UTILITIES ───────────*/
 .text-grey {color:var(--dark-grey)}
@@ -136,7 +138,22 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 /* .mega-btn.teal{background:var(--teal)} */
 .mega-btn i{font-size:2.2rem}
 
-/*──────────────── RECORDER KEYPAD ────────────*/
+/*───────────── ARROW SCORES INPUT ────────────*/
+#arrow-scores-input {
+  margin-top: 2rem;
+  display: flex;
+  align-items: stretch;
+  gap: .7rem;
+}
+
+#arrow-scores-input input[type="text"] {
+  text-align: center;
+  flex: 1;
+  font-size: 2rem;
+  padding: .6rem 0;
+}
+
+/*────────────── RECORDER KEYPAD ──────────────*/
 .num-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1.2rem 0
 }
