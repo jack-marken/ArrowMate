@@ -112,7 +112,7 @@ currentUser = loadSession();
 if(currentUser){
   nav.classList.add('show');
   // show('home');
-  show('archer-round-setup'); // Temporary for development
+  show('archer-range-input'); // Temporary for development
   // show('your-scores');
 }
 renderProfile();
@@ -251,6 +251,19 @@ $('#club-select')?.addEventListener('change', async e=>{
   $('#club-table').innerHTML = `<thead><tr><th>Archer</th><th>Equipment</th><th>Shot on</th><th>Total</th></tr></thead><tbody>${rows}</tbody>`;
 });
 
+/*─────────── ARROW SCORES INPUT ────────────*/
+$('#arrow-scores-input')?.addEventListener('keypress', async e=> {
+  upperKey = e.key.toUpperCase();
+  // Limit input to only 0-9, M, or X
+  if ((e.which >= 48 && e.which <= 57) || upperKey == 'M' || upperKey == 'X') {
+    e.target.value = upperKey;
+    let active = document.activeElement;
+    let target = $('[tabindex="' + (active.tabIndex + 1) + '"]');
+    target.focus();
+  } else {
+    e.preventDefault();
+  }
+})
 /*─────────────────────────────────────────────────────────────────
   Archer flow improvements
 ─────────────────────────────────────────────────────────────────*/
