@@ -87,7 +87,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .swap-btn{width:140px;margin:0;padding:.55rem 0;font-size:.92rem}
 
 .card {
-  width:100%;margin:1.2rem 0;padding:1rem;
+  width:100%;margin:0 0 1.2rem 0;padding:1rem;
   font-size:1.2rem;
   border:1px solid var(--dark-grey);border-radius:8px;
   cursor:pointer;color:#000;
