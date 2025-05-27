@@ -112,10 +112,79 @@ currentUser = loadSession();
 if(currentUser){
   nav.classList.add('show');
   // show('home');
-  show('archer-range-input'); // Temporary for development
+  // show('archer-range-input'); // Temporary for development
   // show('your-scores');
+  show('round-details');
 }
 renderProfile();
+
+/*─────────────────── ROUND DETAILS ───────────────────*/
+
+// TODO: To be replaced by database query result
+scoreTitle = 'Large target face at 50m';
+scoreEnds = {
+  'End 1':['X', '9', '9', '8', '8', '8'],
+  'End 2':['9', '9', '9', '8', '7', '6'],
+  'End 3':['X', '9', '9', '7', '7', '7'],
+  'End 4':['X', '9', '9', '9', '9', '8'],
+  'End 5':['X', '10', '8', '8', '8', '8'],
+};
+totalProgression = 0;
+tenCount = 0;
+xCount = 0;
+
+// const rangeScore1 = document.querySelector('.range-score-1');
+// const archerScores = document.querySelectorAll('.cell-arrow');
+
+const scoresSection = document.querySelector('.scores-section');
+const tableElement = document.createElement('table');
+const colString = [
+  '<col class="col-med-w">',
+  '<col class="col-arrow">'.repeat(6),
+  '<col class="col-med-w">',
+  '<col class="col-med-w">'
+].join('');
+
+tableElement.insertAdjacentHTML('beforeend', colString);
+tableElement.insertAdjacentHTML('beforeend', `
+  <thead>
+    <tr>
+      <th colspan="7" class="cell-dark text-left">${scoreTitle}</th>
+      <th class="cell-dark-grey">End</th>
+      <th class="cell-dark-grey">Prog</th>
+    </tr>
+  </thead>
+`);
+
+tableBodyElement = document.createElement('tbody');
+for (var key in scoreEnds) {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td>${key}</td>`;
+  scoreEnds[key].forEach((arrow) => {
+    row.insertAdjacentHTML('beforeend', `<td class="cell-arrow">${arrow}</td>`);
+  });
+  tableBodyElement.appendChild(row);
+}
+tableElement.appendChild(tableBodyElement);
+
+tableElement.insertAdjacentHTML('beforeend', `
+  <tr class="text-center cell-h-med">
+    <td colspan="3">10's &amp; X's: <strong>5</strong></td>
+    <td colspan="3">X's: <strong>5</strong></td>
+    <td colspan="5" class="text-right"><h2>Total: 254</h2></td>
+  </tr>
+`);
+
+scoresSection.appendChild(tableElement);
+
+archerScores = document.querySelectorAll('.cell-arrow');
+archerScores.forEach(element => {
+  if (['X','10','9'].includes(element.textContent)) { element.style.backgroundColor = 'var(--yellow)'; }
+  else if (['8','7'].includes(element.textContent)) { element.style.backgroundColor = 'var(--red)'; }
+  else if (['6','5'].includes(element.textContent)) { element.style.backgroundColor = 'var(--blue)'; element.style.color = 'var(--off-white)'; }
+  else if (['4','3'].includes(element.textContent)) { element.style.backgroundColor = 'var(--black)'; element.style.color = 'var(--off-white)'; }
+  else if (['2','1'].includes(element.textContent)) { element.style.backgroundColor = 'var(--off-white)'; }
+});
 
 /*──────────────── RECORDER (add ends) ────────────────*/
 async function refreshArchers(){

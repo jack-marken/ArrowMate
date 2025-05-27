@@ -3,11 +3,13 @@
 ──────────────────────────────────────────────────────────────────*/
 :root{
   /* --white:#f4f7f5; - Pure white background feels less cluttered (inspired by facebook/youtube/a few others) */
-  --off-white:#f4f7f5; --white:#ffffff;  --dark:#091029; --slate:#75828f;
-  --dark-grey:#8d8c8f; --light-grey:#d2d0d4;
+  --white: #fff; --black: #000;
+  --off-white:#f4f7f5; --white:#ffffff;  --slate:#75828f;
+  --dark-grey:#8d8c8f; --light-grey:#d2d0d4; --dark:#656466; 
 
   --red:#e84623;    --rust:#c6492e;
-  --yellow:#f8ad1c;
+  --yellow:#f7ea51;
+  --mustard:#f8ad1c;
   --navy:#082f60;   --blue:#1490c7; --teal:#2c7c9c;
 }
 
@@ -37,8 +39,12 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .flex-end{text-align:right;align-items:end;}
 .flex-grow {flex-grow:1;}
 
-/*──────────────── COLOUR UTILITIES ───────────*/
+/*───────────── TEXT/ICON UTILITIES ───────────*/
+.text-left {text-align:left}
+.text-center {text-align:center}
+.text-right {text-align:right}
 .text-grey {color:var(--dark-grey)}
+.svg-icon-sm { height:1rem; margin-right: .2rem; }
 
 /*──────────────── SVG FILTERS ────────────────*/
 .filter-blue {
@@ -51,6 +57,10 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 
 .filter-yellow {
   filter: invert(85%) sepia(24%) saturate(6974%) hue-rotate(347deg) brightness(104%) contrast(94%);
+}
+
+.filter-grey {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(7%) saturate(103%) hue-rotate(219deg) brightness(99%) contrast(90%);
 }
 
 /*──────────────── HOME QUADRANT GRID ─────────*/
@@ -73,7 +83,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--grey);cursor:pointer}
 .nav-btn.center i{font-size:1.9rem}
 .nav-btn--target {color:var(--red)}
-.nav-active,.nav-btn:active{color:var(--yellow)}
+.nav-active,.nav-btn:active{color:var(--mustard)}
 
 /*──────────────── GENERIC FORMS & BUTTONS ────*/
 .stack label, .stack p {font-size:1.2rem;display:flex;flex-direction:column;gap:.25rem;margin-top:1rem;margin-bottom:.85rem}
@@ -100,7 +110,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 
 .card--underlined {border-bottom: 0.5rem solid var(--dark-grey);}
 .card--blue {border-color: var(--blue)}
-.card--yellow {border-color: var(--yellow)}
+.card--mustard {border-color: var(--mustard)}
 
 .card-section {
   display:flex;
@@ -137,6 +147,28 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 
 /* .mega-btn.teal{background:var(--teal)} */
 .mega-btn i{font-size:2.2rem}
+
+/*─────────────────── TABLES ──────────────────*/
+table {border-collapse: collapse; max-width:100%; font-size:.8rem}
+
+td, th {
+  padding: .3rem;
+  border:1px solid var(--light-grey);
+  background-color: var(--off-white);
+  color: black;
+  max-width:100%;
+  white-space:nowrap;
+}
+
+th {padding-left:.4rem;padding-right:.4rem}
+
+/* .cell-w-sm {width: 30px;} */
+.col-arrow {width: 12.5%;}
+.col-med-w {width: 30%;}
+
+.cell-dark {color:white;background-color:var(--dark)}
+.cell-dark-grey {color:white;background-color:var(--dark-grey)}
+.cell-light-grey {color:white;background-color:var(--light-grey)}
 
 /*───────────── ARROW SCORES INPUT ────────────*/
 #arrow-scores-input {
