@@ -414,7 +414,7 @@ function resetArcherForm(){
   $('#a-class').selectedIndex=0; $('#a-div').selectedIndex=0;
   $('#archer-fields').style.display='block';
 }
-document.querySelector('[data-goto="archer-setup"]').addEventListener('click', resetArcherForm);
+// document.querySelector('[data-goto="archer-setup"]').addEventListener('click', resetArcherForm);
 
 $('#archer-existing').onchange = e=>{
   $('#archer-fields').style.display = e.target.value ? 'none':'block';
