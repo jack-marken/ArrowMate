@@ -149,22 +149,29 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .mega-btn i{font-size:2.2rem}
 
 /*─────────────────── TABLES ──────────────────*/
-table {border-collapse: collapse; max-width:100%; font-size:.8rem}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size:.8rem;
+  table-layout: auto;
+}
 
 td, th {
   padding: .3rem;
   border:1px solid var(--light-grey);
   background-color: var(--off-white);
   color: black;
-  max-width:100%;
+  width: auto;
   white-space:nowrap;
+  text-align: center;
 }
 
 th {padding-left:.4rem;padding-right:.4rem}
 
 /* .cell-w-sm {width: 30px;} */
-.col-arrow {width: 12.5%;}
-.col-med-w {width: 30%;}
+.col-arrow {width: 1.5rem;}
+/* .col-med-w {width: 50px;} */
+/* .col-med-w {width: 30px;} */
 
 .cell-dark {color:white;background-color:var(--dark)}
 .cell-dark-grey {color:white;background-color:var(--dark-grey)}
