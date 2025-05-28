@@ -14,7 +14,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,system-ui,Arial}
-html,body{height:100%;background:var(--white);color:var(--dark)}
+html,body{height:100%;background:var(--white);color:var(--black)}
 /* h1,h2,h3,h4,h5,h6,p,th,td,label{text-align:center} */
 
 /*──────────────── HERO HEADERS ──────────────*/
@@ -45,6 +45,13 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
 .text-right {text-align:right}
 .text-grey {color:var(--dark-grey)}
 .svg-icon-sm { height:1rem; margin-right: .2rem; }
+.big-box {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--off-white);
+  border: 1px solid var(--light-grey);
+}
 
 /*──────────────── SVG FILTERS ────────────────*/
 .filter-blue {
@@ -80,7 +87,7 @@ html,body{height:100%;background:var(--white);color:var(--dark)}
   position:fixed;left:0;right:0;bottom:0;height:60px;
   display:flex;border-top:1px solid #ddd;background:#fff
 }
-.nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--grey);cursor:pointer}
+.nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--light-grey);cursor:pointer}
 .nav-btn.center i{font-size:1.9rem}
 .nav-btn--target {color:var(--red)}
 .nav-active,.nav-btn:active{color:var(--mustard)}
@@ -154,6 +161,7 @@ table {
   width: 100%;
   font-size:.8rem;
   table-layout: auto;
+  margin-top: 1rem;
 }
 
 td, th {
