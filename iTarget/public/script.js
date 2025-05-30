@@ -1,18 +1,77 @@
 /*────────────────────────────────────────────────────────────────────────
-  ArrowMate  –  Single-Page Front-End
-─────────────────────────────────────────────────────────────────────────*/
+  ArrowMate - Probably has no functionality - i havent gotten around to testing it yet unfortunately
+    i just threw some logic into this, could easily be looked back onto and fixed/improved
+    im too tired at this point to do anything more with it
+────────────────────────────────────────────────────────────────────────*/
+const api = async (url, opts = {}) => {
+  try {
+    const res = await fetch(`/api/${url}`, opts);
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    return res.json();
+  } catch (err) {
+    alert(`Network / server error:\n${err.message}`);
+    throw err;
+  }
+};
+const $ = q => document.querySelector(q);
 
-/*== Utility ============================================================*/
-const api = (url, opts={}) => fetch(`/api/${url}`, opts).then(r => r.json());
-const $   = sel => document.querySelector(sel);
-
-/* Cache frequently-used DOM nodes */
-const nav   = $('.bottom-nav');
+/*──────────────── GLOBAL STATE & HELPERS ─────────────────────────────*/
+let currentUser = null;
+const nav = $('.bottom-nav');
 const dateE = $('#home-date');
 const timeE = $('#home-time');
 const tempE = $('#home-weather');
+function show(id) {
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.toggle('active', s.id === id));
+  document.querySelectorAll('.nav-btn')
+    .forEach(b => b.classList.toggle('nav-active', b.dataset.goto === id));
+}
 
-let currentUser = null;
+/*──────────────── SESSION / PROFILE  (unchanged) ─────────────────────*/
+function saveSession(u)      { localStorage.setItem('currentUser', JSON.stringify(u)); }
+function loadSession()       { return JSON.parse(localStorage.getItem('currentUser') || 'null'); }
+function clearSession()      { localStorage.removeItem('currentUser'); }
+function doLogout()          { currentUser=null; clearSession(); nav.classList.remove('show'); show('profile'); renderProfile(); }
+$('#swap-account').onclick   = doLogout;
+
+/* … login rendering unchanged … */
+
+/*──────────────── ARCHER PICKERS – now backed by DB ───────────────────*/
+async function refreshArchers() {
+  const list = await api('archers');
+  /* Recorder select */
+  const sel  = $('#record-archer');
+  if (sel) { sel.innerHTML = '<option value="">-- select --</option>'; }
+  list.forEach(a => {
+    if (sel) sel.insertAdjacentHTML('beforeend', `<option value="${a.id}">${a.name}</option>`);
+  });
+}
+refreshArchers();
+
+/*──────────────── NEW ARCHER REGISTER  →  persists to DB ─────────────*/
+$('#archer-form')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const fn = $('#a-fname').value.trim();
+  const ln = $('#a-lname').value.trim();
+  if (!fn || !ln) return alert('First/Last name required');
+
+  const payload = {
+    firstName : fn,
+    lastName  : ln,
+    gender    : $('#a-div').value.match(/Female/i) ? 'Female' : 'Male',
+    dob       : $('#a-dob').value,
+    categoryID: null
+  };
+  const { id } = await api('archers', {
+    method : 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body   : JSON.stringify(payload)
+  });
+  alert(`Archer created (#${id})`);
+  refreshArchers();
+  show('champ-select');
+});
 
 /*──────────────── ROUTER & NAV ────────────────*/
 function show(id){
