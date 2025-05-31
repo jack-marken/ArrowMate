@@ -1,8 +1,13 @@
 <?php
+  $PAGES_DIR = '/pages/';
+
   $database = 's105584279_db';
   $username = 's105584279';
   $password = '210605';
   $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password);
+
+  $active_page = 'your-scores';
+  /* $request = $_SERVER['REQUEST_URI']; */
 
   /* -------- QUERY TEMPLATE -------- */
   /* foreach($dbh->query('SELECT * from Archer') as $row) */
@@ -28,8 +33,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <?php include 'pages/round-details.php' ?>
-  <?php include 'components/bottom-nav.php'; ?>
+  <?php
+  echo($request);
+    /* switch ($request) { */
+    /* case '/': */
+    /*   require __DIR__ . $PAGES_DIR . 'your-scores.php'; */
+    /*   break; */
+    /* default: */
+    /*   http_response_code(404); */
+      
+    }
+    include 'pages/' . $active_page . '.php';
+    include 'components/bottom-nav.php';
+  ?>
+
   <script src="script.js"></script>
 </body>
 </html>
