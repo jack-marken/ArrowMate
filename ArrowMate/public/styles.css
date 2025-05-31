@@ -1,0 +1,254 @@
+/*──────────────────────────────────────────────────────────────────
+  GLOBAL PALETTE
+──────────────────────────────────────────────────────────────────*/
+:root{
+  /* --white:#f4f7f5; - Pure white background feels less cluttered (inspired by facebook/youtube/a few others) */
+  --white: #fff; --black: #000;
+  --off-white:#f4f7f5; --white:#ffffff;  --slate:#75828f;
+  --dark-grey:#8d8c8f; --light-grey:#d2d0d4; --dark:#656466; 
+
+  --red:#e84623;    --rust:#c6492e;
+  --yellow:#f7ea51;
+  --mustard:#f8ad1c;
+  --navy:#082f60;   --blue:#1490c7; --teal:#2c7c9c;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,system-ui,Arial}
+html,body{height:100%;background:var(--white);color:var(--black)}
+/* h1,h2,h3,h4,h5,h6,p,th,td,label{text-align:center} */
+
+/*──────────────── HERO HEADERS ──────────────*/
+.hero {padding:1.5rem 1.2rem 1rem 1.2rem;background:#fff; text-align:left;}
+.hero--simple {background:#fff;border-bottom:1px solid #ddd;color:var(--black);}
+.hero--white-blue {background:#fff; color:var(--blue);}
+.hero--navy {background:var(--navy); color:#fff}
+.hero--red {background:var(--red); color: #fff}
+.hero--short {padding-top:1rem; padding-bottom:1rem; text-align:center;}
+.hero--tall {padding-top:3rem;padding-bottom:1.5rem;}
+.big-title h1{font-size:1.9rem;letter-spacing:.8px}
+.subtitle{font-size:1rem;margin-top:.45rem;opacity:.85}
+
+/*──────────────── LAYOUT UTILITIES ───────────*/
+.pad{padding:1.2rem}
+.screen{display:none;flex-direction:column;height:calc(100% - 60px);overflow:auto}
+.screen.active{display:flex}
+.flex-column {display:flex;flex-direction:column}
+.flex-row {display:flex;flex-direction:row;justify-content:space-between;}
+.flex-start{text-align:left;align-items:start;}
+.flex-center{text-align:center;align-items:center;}
+.flex-end{text-align:right;align-items:end;}
+.flex-grow {flex-grow:1;}
+
+/*───────────── TEXT/ICON UTILITIES ───────────*/
+.text-left {text-align:left}
+.text-center {text-align:center}
+.text-right {text-align:right}
+.text-grey {color:var(--dark-grey)}
+.svg-icon-sm { height:1rem; margin-right: .2rem; }
+.big-box {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--off-white);
+  border: 1px solid var(--light-grey);
+}
+
+/*──────────────── SVG FILTERS ────────────────*/
+.filter-blue {
+  filter: invert(45%) sepia(25%) saturate(3024%) hue-rotate(167deg) brightness(91%) contrast(84%);
+}
+
+.filter-red {
+  filter: invert(40%) sepia(89%) saturate(3795%) hue-rotate(349deg) brightness(94%) contrast(93%);
+}
+
+.filter-yellow {
+  filter: invert(85%) sepia(24%) saturate(6974%) hue-rotate(347deg) brightness(104%) contrast(94%);
+}
+
+.filter-grey {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(7%) saturate(103%) hue-rotate(219deg) brightness(99%) contrast(90%);
+}
+
+/*──────────────── HOME QUADRANT GRID ─────────*/
+.home-quad{
+  display:grid;grid-template:1fr 1fr / 1fr 1fr;gap:.6rem;
+  height:calc(100% - 60px);padding:1rem;
+}
+.quad{display:flex;flex-direction:column}
+.tl{align-items:flex-start;justify-content:space-evenly}
+.tl h2{font-size:1.5rem}
+.tl p {font-size:1.15rem;text-align:left;margin:.15rem 0}
+.tr{align-items:center;justify-content:flex-start}
+.logo-placeholder{width:150px;height:150px;object-fit:contain}
+
+/*──────────────── BOTTOM NAV ────────────────*/
+.bottom-nav{
+  position:fixed;left:0;right:0;bottom:0;height:60px;
+  display:flex;border-top:1px solid #ddd;background:#fff
+}
+.nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--light-grey);cursor:pointer}
+.nav-btn.center i{font-size:1.9rem}
+.nav-btn--target {color:var(--red)}
+.nav-active,.nav-btn:active{color:var(--mustard)}
+
+/*──────────────── GENERIC FORMS & BUTTONS ────*/
+.stack label, .stack p {font-size:1.2rem;display:flex;flex-direction:column;gap:.25rem;margin-top:1rem;margin-bottom:.85rem}
+.stack input,label select{padding:.65rem;border:1px solid var(--light-grey);border-radius:5px;font-size:1rem;width:100%}
+.stack input[type="date"] { border: none; border-radius: 0px; border-bottom: 2px solid var(--light-grey); }
+
+.primary{ width:100%;padding:.8rem;border:none;border-radius:6px; font-size:1rem;background:var(--blue);color:#fff;cursor:pointer }
+
+.secondary{ padding:.8rem;border:2px solid var(--light-grey);border-radius:6px;background:#fff;cursor:pointer }
+
+.line-break { margin:2rem .5rem .1rem .5rem; border: 0.5px solid var(--light-grey); }
+
+.swap-btn{width:140px;margin:0;padding:.55rem 0;font-size:.92rem}
+
+.card {
+  width:100%;margin:0 0 1.2rem 0;padding:1rem;
+  font-size:1.2rem;
+  border:1px solid var(--dark-grey);border-radius:8px;
+  cursor:pointer;color:#000;
+  background:var(--white);
+  /* border:2px solid var(--dark-grey); */
+  border-radius:12px;
+}
+
+.card--underlined {border-bottom: 0.5rem solid var(--dark-grey);}
+.card--blue {border-color: var(--blue)}
+.card--mustard {border-color: var(--mustard)}
+
+.card-section {
+  display:flex;
+  flex: 1 1 100%;
+  gap:.5rem;
+  padding:0;
+  margin:0;
+}
+
+.card-column > * {
+  flex: 1 1 100%;
+}
+
+.card a {
+  color: var(--blue);
+  align-self: flex-end;
+}
+
+.mega-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+  width:100%;margin:1.2rem 0;padding:1rem 1rem;
+  font-size:1.2rem;
+  border:2px solid var(--blue);border-radius:12px;border-bottom: 0.5rem solid var(--blue);
+  cursor:pointer;color:#000;
+  background:var(--white)
+}
+
+.mega-btn i { 
+  color:var(--blue);
+  font-size: 1.8rem; /* (This doesn't work) TODO: figure out how to increase the icon size */
+}
+
+.mega-btn img { height:3rem; }
+
+/* .mega-btn.teal{background:var(--teal)} */
+.mega-btn i{font-size:2.2rem}
+
+/*─────────────────── TABLES ──────────────────*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size:.8rem;
+  table-layout: auto;
+  margin-top: 1rem;
+}
+
+td, th {
+  padding: .3rem;
+  border:1px solid var(--light-grey);
+  background-color: var(--off-white);
+  color: black;
+  width: auto;
+  white-space:nowrap;
+  text-align: center;
+}
+
+th {padding-left:.4rem;padding-right:.4rem}
+
+/* .cell-w-sm {width: 30px;} */
+.col-arrow {width: 1.5rem;}
+/* .col-med-w {width: 50px;} */
+/* .col-med-w {width: 30px;} */
+
+.cell-dark {color:white;background-color:var(--dark)}
+.cell-dark-grey {color:white;background-color:var(--dark-grey)}
+.cell-light-grey {color:white;background-color:var(--light-grey)}
+
+/*───────────── ARROW SCORES INPUT ────────────*/
+#arrow-scores-input {
+  margin-top: 2rem;
+  display: flex;
+  align-items: stretch;
+  gap: .7rem;
+}
+
+#arrow-scores-input input[type="text"] {
+  text-align: center;
+  flex: 1;
+  font-size: 2rem;
+  padding: .6rem 0;
+}
+
+/*────────────── RECORDER KEYPAD ──────────────*/
+.num-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1.2rem 0
+}
+.num-grid button{
+  padding:1.1rem 0;font-size:1.2rem;border:none;border-radius:8px;font-weight:700;color:#fff;cursor:pointer
+}
+.num-grid .yellow{background:#eac81b}.num-grid .red{background:#d63a2e}
+.num-grid .blue{background:#1665c0}.num-grid .black{background:#2f2f2f}
+.num-grid .white{background:#dcdcda;color:#000}.num-grid .grey{background:#8a8a8a}
+
+.strip{display:flex;gap:.4rem;margin-bottom:.6rem;min-height:40px}
+.strip span{flex:1;padding:.55rem 0;border:1px solid #ccc;border-radius:6px;text-align:center}
+.total-box{
+  width:90px;margin:0 auto .8rem;font-size:1.6rem;font-weight:700;text-align:center;
+  padding:.5rem;border:2px solid var(--rust);border-radius:6px
+}
+
+/* review table cell colours */
+td.yellow{background:#fde88b} td.red{background:#f9a79a} td.blue{background:#9bc0f4}
+td.black{background:#b0b0b0;color:#000} td.white{background:#fff} td.grey{background:#c5c5c5}
+
+/*──────────────── LEADERBOARD ───────────────*/
+.board{display:flex;gap:1rem}
+.board-list{flex:0 0 240px}
+.board-detail{flex:1;min-height:260px;padding:1rem;border:1px solid #ddd;border-radius:8px;background:#fff}
+
+.board-list li{
+  display:flex;align-items:center;gap:.8rem;padding:.6rem 0;border-bottom:1px solid #eee;cursor:pointer
+}
+.board-list li:hover{background:var(--light-blue);color:#fff}
+.board-list img.avatar{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.board-list .rank{width:24px;text-align:center;font-weight:700}
+.board-list .pts{margin-left:auto;font-weight:700}
+
+/*──────────────── MEDIA / FLAGS ─────────────*/
+.pfp-placeholder{width:90px;height:90px;border-radius:50%;object-fit:cover;margin-bottom:.8rem}
+.flag-placeholder{width:28px;height:20px;object-fit:contain;vertical-align:baseline}
+
+/*──────── Leaderboard layout - Not Functional As of the moment ───────*/
+.board{display:flex;gap:1rem;}
+.board-list{flex:1 1 40%;max-width:240px;}
+.board-detail{flex:1;background:#fff;border:1px solid #ddd;border-radius:8px;padding:1rem;min-height:260px;}
+
+.board-list li{
+  display:flex;align-items:center;gap:.8rem;border-bottom:1px solid #eee;padding:.6rem 0;cursor:pointer;
+}
+.board-list img.avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+.board-list .rank{width:24px;text-align:center;font-weight:700;}
+.board-list .pts{margin-left:auto;font-weight:700;}
+
+.board-list li:hover{background:var(--light-blue);color:#fff}
