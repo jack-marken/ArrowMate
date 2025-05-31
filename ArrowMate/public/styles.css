@@ -87,7 +87,18 @@ html,body{height:100%;background:var(--white);color:var(--black)}
   position:fixed;left:0;right:0;bottom:0;height:60px;
   display:flex;border-top:1px solid #ddd;background:#fff
 }
-.nav-btn{flex:1;border:none;background:none;font-size:1.45rem;color:var(--light-grey);cursor:pointer}
+.nav-btn{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border:none;
+  background:none;
+  font-size:1.45rem;
+  color:var(--light-grey);
+  cursor:pointer
+}
 .nav-btn.center i{font-size:1.9rem}
 .nav-btn--target {color:var(--red)}
 .nav-active,.nav-btn:active{color:var(--mustard)}

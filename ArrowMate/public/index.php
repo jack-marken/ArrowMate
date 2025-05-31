@@ -1,5 +1,17 @@
 <?php
-  $PAGES_DIR = '/pages/';
+  $BASE_DIR = '/cos20031/s105417647/ArrowMate/';
+  $PAGES_DIR = 'pages/';
+
+  $page_list = array(
+    'your-scores',
+    'round-details',
+    'action-picker',
+    'archer-range-setup',
+    'leaderboard',
+    'login',
+    'round-details',
+    'your-scores'
+  );
 
   $database = 's105584279_db';
   $username = 's105584279';
@@ -7,7 +19,7 @@
   $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password);
 
   $active_page = 'your-scores';
-  /* $request = $_SERVER['REQUEST_URI']; */
+  $request = $_SERVER['REQUEST_URI'];
 
   /* -------- QUERY TEMPLATE -------- */
   /* foreach($dbh->query('SELECT * from Archer') as $row) */
@@ -33,19 +45,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <?php
-  echo($request);
-    /* switch ($request) { */
-    /* case '/': */
-    /*   require __DIR__ . $PAGES_DIR . 'your-scores.php'; */
-    /*   break; */
-    /* default: */
-    /*   http_response_code(404); */
-      
-    }
-    include 'pages/' . $active_page . '.php';
-    include 'components/bottom-nav.php';
-  ?>
+
+<?php
+$page = basename(parse_url($request)['path']);
+
+if ($page == 'ArrowMate') {
+  $page = 'your-scores';
+}
+
+if (in_array($page, $page_list)) {
+  include $PAGES_DIR . $page . '.php';
+}
+/* foreach ($page_list as $active_page) { */
+/*   include $PAGES_DIR . $active_page . '.php'; */
+/* } */
+
+include 'components/bottom-nav.php';
+?>
 
   <script src="script.js"></script>
 </body>

@@ -2,7 +2,7 @@
 <!----------------------------------------------------------------
   ARROW SCORES INPUT
 ----------------------------------------------------------------->
-<section id="archer-range-input" class="screen">
+<section id="archer-range-input">
   <header class="hero hero--short hero--simple flex-row">
     <i class="bi bi-caret-left-fill" data-goto="archer-range-setup"></i>
     <h3 class="flex-grow">SCORE&nbsp;YOUR&nbsp;END</h3>

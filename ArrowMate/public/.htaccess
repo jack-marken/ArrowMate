@@ -1,3 +1,6 @@
 RewriteEngine On
+RewriteBase /cos20031/s105417647/ArrowMate/
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php
+# RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
