@@ -15,6 +15,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0;font-family:Roboto,system-ui,Arial}
 html,body{height:100%;background:var(--white);color:var(--black)}
+a {text-decoration:none;}
 /* h1,h2,h3,h4,h5,h6,p,th,td,label{text-align:center} */
 
 /*──────────────── HERO HEADERS ──────────────*/
@@ -92,7 +93,6 @@ html,body{height:100%;background:var(--white);color:var(--black)}
   display:flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
   border:none;
   background:none;
   font-size:1.45rem;
@@ -145,7 +145,6 @@ html,body{height:100%;background:var(--white);color:var(--black)}
 .card a {
   color: var(--blue);
   align-self: flex-end;
-  text-decoration: none;
 }
 
 .mega-btn{
