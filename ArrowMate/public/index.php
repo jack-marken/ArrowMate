@@ -1,11 +1,12 @@
 <?php
   $BASE_DIR = '/cos20031/s105417647/ArrowMate/';
-  $PAGES_DIR = 'pages/';
+  $HOME_PAGES_DIR = 'home-pages/';
+  $PERIPHERAL_PAGES_DIR = 'peripheral-pages/';
 
   $home_pages = array(
     'home',
     'your-scores',
-    'action-picker',
+    'join-range',
     'leaderboard',
     'login'
   );
@@ -21,13 +22,13 @@
   $database = 's105584279_db';
   $username = 's105584279';
   $password = '210605';
-  $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password);
+  /* $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password); */
 
   /* -------- QUERY TEMPLATE -------- */
-  foreach($dbh->query('SELECT * from Archer') as $row)
-  {
-     print_r($row);
-  }
+  /* foreach($dbh->query('SELECT * from Archer') as $row) */
+  /* { */
+  /*    print_r($row); */
+  /* } */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,18 +57,14 @@ $active_page = basename(parse_url($request)['path']);
 
 if ($active_page == 'ArrowMate') {
   foreach ($home_pages as $active_page) {
-    include $PAGES_DIR . $active_page . '.php';
+    include $HOME_PAGES_DIR . $active_page . '.php';
   }
   include 'components/bottom-nav.php';
 }
 
 if (in_array($active_page, $peripheral_pages)) {
-  include $PAGES_DIR . $active_page . '.php';
+  include $PERIPHERAL_PAGES_DIR . $active_page . '.php';
 }
-
-/* if (in_array($page, $page_list)) { */
-/*   include $PAGES_DIR . $page . '.php'; */
-/* } */
 ?>
 
   <script src="scripts/script.js"></script>
