@@ -2,7 +2,7 @@
 <!----------------------------------------------------------------
   LEADERBOARD
 ----------------------------------------------------------------->
-<section id="leaderboard">
+<section id="leaderboard" class="screen">
   <header class="hero"><h1>Leaderboard</h1></header>
   <main class="pad board">
     <aside class="board-list"><ul id="lb-list"></ul></aside>

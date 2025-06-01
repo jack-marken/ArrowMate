@@ -5,7 +5,7 @@
 <!----------------------------------------------------------------
   ROUND DETAILS
 ----------------------------------------------------------------->
-<section id="round-details">
+<section id="round-details" class="screen">
   <header class="hero hero--short hero--simple flex-row">
     <i class="bi bi-caret-left-fill" data-goto="your-scores"></i>
     <h3 class="flex-grow">ROUND&nbsp;DETAILS</h3>

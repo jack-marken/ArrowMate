@@ -2,7 +2,7 @@
 <!----------------------------------------------------------------
   YOUR SCORES – The user's round information
 ----------------------------------------------------------------->
-<section id="your-scores">
+<section id="your-scores" class="screen">
   <header class="hero hero--white-blue hero--tall big-title"><h1>YOUR SCORES</h1></header>
 
   <main>
