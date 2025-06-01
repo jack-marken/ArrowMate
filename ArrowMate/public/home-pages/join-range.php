@@ -1,8 +1,8 @@
 
 <!----------------------------------------------------------------
-  ACTION PICKER – Archer / Recorder
+  JOIN RANGE – Archer / Recorder
 ----------------------------------------------------------------->
-<section id="action-picker" class="screen">
+<section id="join-range" class="screen">
   <header class="hero hero--red hero--tall big-title">
     <h1>JOIN&nbsp;A&nbsp;RANGE</h1>
     <p class="subtitle">What is your role?</p>
