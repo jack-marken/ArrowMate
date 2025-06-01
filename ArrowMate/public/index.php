@@ -1,23 +1,21 @@
 <?php
   $BASE_DIR = '/cos20031/s105417647/ArrowMate/';
-  $HOME_PAGES_DIR = 'home-pages/';
-  $PERIPHERAL_PAGES_DIR = 'peripheral-pages/';
+  $HOME_PAGES_DIR = 'pages/home/';
+  $PERIPHERAL_PAGES_DIR = 'pages/peripheral/';
 
   $home_pages = array(
     'home',
     'your-scores',
     'join-range',
     'leaderboard',
-    'login'
+    'profile'
   );
 
   $peripheral_pages = array(
     'round-details',
     'archer-range-setup',
+    'arrow-scores-input'
   );
-
-  $active_page = 'your-scores';
-  $request = $_SERVER['REQUEST_URI'];
 
   $database = 's105584279_db';
   $username = 's105584279';
@@ -53,17 +51,25 @@
 <body>
 
 <?php
-$active_page = basename(parse_url($request)['path']);
-$active_page = ($active_page == 'ArrowMate') ? 'main' : $active_page;
+/* require 'pages/auth/login.php'; */
+session_start();
 
-if ($active_page == 'main') {
-  foreach ($home_pages as $active_page) {
-    require $HOME_PAGES_DIR . $active_page . '.php';
+// Check if the user is logged in, if
+// not then redirect them to the login page
+if (!isset($_SESSION['user'])) {
+  require 'pages/auth/login.php';
+} else {
+  $active_page = basename(parse_url($_SERVER['REQUEST_URI'])['path']); /* Final part of URL */
+  $active_page = ($active_page == 'ArrowMate') ? 'main' : $active_page;
+  if ($active_page == 'main') {
+    foreach ($home_pages as $active_page) {
+      require $HOME_PAGES_DIR . $active_page . '.php';
+    }
+    require 'components/bottom-nav.php';
+    echo('<script src="scripts/home.js"></script>');
+  } elseif (in_array($active_page, $peripheral_pages)) {
+    require $PERIPHERAL_PAGES_DIR . $active_page . '.php';
   }
-  require 'components/bottom-nav.php';
-  echo('<script src="scripts/home.js"></script>');
-} elseif (in_array($active_page, $peripheral_pages)) {
-  require $PERIPHERAL_PAGES_DIR . $active_page . '.php';
 }
 ?>
 </body>

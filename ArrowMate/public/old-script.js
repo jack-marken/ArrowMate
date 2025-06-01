@@ -16,24 +16,24 @@
 // const $ = q => document.querySelector(q);
 
 /*──────────────── GLOBAL STATE & HELPERS ─────────────────────────────*/
-let currentUser = null;
-const nav = $('.bottom-nav');
-const dateE = $('#home-date');
-const timeE = $('#home-time');
-const tempE = $('#home-weather');
-function show(id) {
-  document.querySelectorAll('.screen')
-    .forEach(s => s.classList.toggle('active', s.id === id));
-  document.querySelectorAll('.nav-btn')
-    .forEach(b => b.classList.toggle('nav-active', b.dataset.goto === id));
-}
+// let currentUser = null;
+// const nav = $('.bottom-nav');
+// const dateE = $('#home-date');
+// const timeE = $('#home-time');
+// const tempE = $('#home-weather');
+// function show(id) {
+//   document.querySelectorAll('.screen')
+//     .forEach(s => s.classList.toggle('active', s.id === id));
+//   document.querySelectorAll('.nav-btn')
+//     .forEach(b => b.classList.toggle('nav-active', b.dataset.goto === id));
+// }
 
 /*──────────────── SESSION / PROFILE  (unchanged) ─────────────────────*/
-function saveSession(u)      { localStorage.setItem('currentUser', JSON.stringify(u)); }
-function loadSession()       { return JSON.parse(localStorage.getItem('currentUser') || 'null'); }
-function clearSession()      { localStorage.removeItem('currentUser'); }
-function doLogout()          { currentUser=null; clearSession(); nav.classList.remove('show'); show('profile'); renderProfile(); }
-$('#swap-account').onclick   = doLogout;
+// function saveSession(u)      { localStorage.setItem('currentUser', JSON.stringify(u)); }
+// function loadSession()       { return JSON.parse(localStorage.getItem('currentUser') || 'null'); }
+// function clearSession()      { localStorage.removeItem('currentUser'); }
+// function doLogout()          { currentUser=null; clearSession(); nav.classList.remove('show'); show('profile'); renderProfile(); }
+// $('#swap-account').onclick   = doLogout;
 
 /* … login rendering unchanged … */
 
@@ -119,49 +119,49 @@ function doLogout(){
 }
 
 /*──────────────── PROFILE / LOGIN ────────────────*/
-function renderProfile(){
-  const root = $('#profile-body');
-  root.innerHTML = '';
+// function renderProfile(){
+//   const root = $('#profile-body');
+//   root.innerHTML = '';
 
-  /* ---------- LOGIN FORM ---------- */
-  if(!currentUser){
-    root.insertAdjacentHTML('beforeend',`
-      <form id="login-form" class="stack" style="max-width:280px;margin:0 auto;">
-        <label>Username <input type="password" id="login-user"></label>
-        <label>Password <input type="password" id="login-pass"></label>
-        <button class="primary">Login</button>
-      </form>`);
+//   /* ---------- LOGIN FORM ---------- */
+//   if(!currentUser){
+//     root.insertAdjacentHTML('beforeend',`
+//       <form id="login-form" class="stack" style="max-width:280px;margin:0 auto;">
+//         <label>Username <input type="password" id="login-user"></label>
+//         <label>Password <input type="password" id="login-pass"></label>
+//         <button class="primary">Login</button>
+//       </form>`);
 
-    $('#login-form').onsubmit = e => {
-      e.preventDefault();
-      const user = $('#login-user').value.trim();
-      const pass = $('#login-pass').value.trim();
-      if(user==='1234' && pass==='1234'){
-        currentUser = { id:0, name:'Jacob Shiel', nation:'Australia' };
-        saveSession(currentUser);
-        nav.classList.add('show');
-        show('home');
-        renderProfile();
-        refreshArchers();
-        loadPBs();
-      } else alert('Invalid credentials (hint: 1234 / 1234)');
-    };
-    return;
-  }
+//     $('#login-form').onsubmit = e => {
+//       e.preventDefault();
+//       const user = $('#login-user').value.trim();
+//       const pass = $('#login-pass').value.trim();
+//       if(user==='1234' && pass==='1234'){
+//         currentUser = { id:0, name:'Jacob Shiel', nation:'Australia' };
+//         saveSession(currentUser);
+//         nav.classList.add('show');
+//         show('home');
+//         renderProfile();
+//         refreshArchers();
+//         loadPBs();
+//       } else alert('Invalid credentials (hint: 1234 / 1234)');
+//     };
+//     return;
+//   }
 
-  /* ---------- PROFILE CARD ---------- */
-  root.insertAdjacentHTML('beforeend',`
-    <div class="card center">
-      <img src="assets/TempJacob.jpg" alt="pfp" class="pfp-placeholder">
-      <h2>${currentUser.name}</h2>
-      <p><img src="assets/TempAus.jpg" alt="flag" class="flag-placeholder">
-         &nbsp;${currentUser.nation}</p>
-      <button id="logout" class="primary" style="background:var(--rust);margin-top:1.4rem;">
-        Log&nbsp;out
-      </button>
-    </div>`);
-  $('#logout').onclick = doLogout;
-}
+//   /* ---------- PROFILE CARD ---------- */
+//   root.insertAdjacentHTML('beforeend',`
+//     <div class="card center">
+//       <img src="assets/TempJacob.jpg" alt="pfp" class="pfp-placeholder">
+//       <h2>${currentUser.name}</h2>
+//       <p><img src="assets/TempAus.jpg" alt="flag" class="flag-placeholder">
+//          &nbsp;${currentUser.nation}</p>
+//       <button id="logout" class="primary" style="background:var(--rust);margin-top:1.4rem;">
+//         Log&nbsp;out
+//       </button>
+//     </div>`);
+//   $('#logout').onclick = doLogout;
+// }
 
 /* login/logout buttons outside profile */
 $('#swap-account').onclick = doLogout;
@@ -572,32 +572,32 @@ const observer = new MutationObserver(()=>{
 observer.observe($('#recorder-select'),{attributes:true,attributeFilter:['class']});
 
 /*──────────────── Leaderboard mock ───────────────*/
-const lbData=[
-  {name:'Jacob Shiel',  pts:956, avatar:'TempJacob.jpg', ranges:[320,318,318]},
-  {name:'Jack Marken',  pts:903, avatar:'TempJack.jpg',  ranges:[300,301,302]},
-  {name:'Patrick Lunney',pts:881,avatar:'TempUser.jpg',  ranges:[295,293,293]},
-  {name:'Max Pattison', pts:860, avatar:'TempUser.jpg',  ranges:[287,286,287]},
-  {name:'Tom Huynh',    pts:845, avatar:'TempUser.jpg',  ranges:[282,281,282]}
-];
+// const lbData=[
+//   {name:'Jacob Shiel',  pts:956, avatar:'TempJacob.jpg', ranges:[320,318,318]},
+//   {name:'Jack Marken',  pts:903, avatar:'TempJack.jpg',  ranges:[300,301,302]},
+//   {name:'Patrick Lunney',pts:881,avatar:'TempUser.jpg',  ranges:[295,293,293]},
+//   {name:'Max Pattison', pts:860, avatar:'TempUser.jpg',  ranges:[287,286,287]},
+//   {name:'Tom Huynh',    pts:845, avatar:'TempUser.jpg',  ranges:[282,281,282]}
+// ];
 
-lbData.forEach((a,i)=>$('#lb-list').insertAdjacentHTML('beforeend',`
-  <li data-i="${i}"><span class="rank">${i+1}</span>
-    <img class="avatar" src="assets/${a.avatar}" alt="">
-    <span>${a.name}</span>
-    <span class="pts">${a.pts}</span></li>`));
+// lbData.forEach((a,i)=>$('#lb-list').insertAdjacentHTML('beforeend',`
+//   <li data-i="${i}"><span class="rank">${i+1}</span>
+//     <img class="avatar" src="assets/${a.avatar}" alt="">
+//     <span>${a.name}</span>
+//     <span class="pts">${a.pts}</span></li>`));
 
-$('#lb-list').onclick = e=>{
-  const li=e.target.closest('li'); if(!li) return;
-  const a = lbData[li.dataset.i];
-  const rows = ['Range 1','Range 2','Range 3']
-               .map((label,i)=>`<tr><td>${label}</td><td>${a.ranges[i]}</td></tr>`)
-               .join('');
-  $('#lb-detail').innerHTML = `
-    <h3>${a.name}</h3>
-    <p><img src="assets/TempAus.jpg" class="flag-placeholder">&nbsp;Australia</p><br>
-    <table class="table">
-      <thead><tr><th>Series</th><th>Total</th></tr></thead>
-      <tbody>${rows}</tbody>
-      <tfoot><tr><th>Overall</th><th>${a.pts}</th></tr></tfoot>
-    </table>`;
-};
+// $('#lb-list').onclick = e=>{
+//   const li=e.target.closest('li'); if(!li) return;
+//   const a = lbData[li.dataset.i];
+//   const rows = ['Range 1','Range 2','Range 3']
+//                .map((label,i)=>`<tr><td>${label}</td><td>${a.ranges[i]}</td></tr>`)
+//                .join('');
+//   $('#lb-detail').innerHTML = `
+//     <h3>${a.name}</h3>
+//     <p><img src="assets/TempAus.jpg" class="flag-placeholder">&nbsp;Australia</p><br>
+//     <table class="table">
+//       <thead><tr><th>Series</th><th>Total</th></tr></thead>
+//       <tbody>${rows}</tbody>
+//       <tfoot><tr><th>Overall</th><th>${a.pts}</th></tr></tfoot>
+//     </table>`;
+// };

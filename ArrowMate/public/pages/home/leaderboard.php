@@ -8,4 +8,5 @@
     <aside class="board-list"><ul id="lb-list"></ul></aside>
     <section id="lb-detail" class="board-detail"></section>
   </main>
+<script src="scripts/leaderboard.js"></script>
 </section>

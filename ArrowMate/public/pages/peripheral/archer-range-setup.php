@@ -39,7 +39,9 @@
         <p>Open Female Compound</p>
       </div>
     </button>
-    <button class="primary" data-goto="archer-range-input">BEGIN</button>
+    <a href="arrow-scores-input">
+      <div class="primary">BEGIN</div>
+    </a>
   </main>
 </section>
 
