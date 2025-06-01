@@ -2,16 +2,19 @@
   $BASE_DIR = '/cos20031/s105417647/ArrowMate/';
   $PAGES_DIR = 'pages/';
 
-  $page_list = array(
+  $home_pages = array(
+    'home',
     'your-scores',
-    'round-details',
     'action-picker',
-    'archer-range-setup',
     'leaderboard',
-    'login',
-    'round-details',
-    'your-scores'
+    'login'
   );
+
+  $peripheral_pages = array(
+    'round-details',
+    'archer-range-setup',
+  );
+
 
   $database = 's105584279_db';
   $username = 's105584279';
@@ -43,26 +46,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!-- Global styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 
 <?php
-$page = basename(parse_url($request)['path']);
+$active_page = basename(parse_url($request)['path']);
 
-if ($page == 'ArrowMate') {
-  $page = 'your-scores';
+if ($active_page == 'ArrowMate') {
+  foreach ($home_pages as $active_page) {
+    include $PAGES_DIR . $active_page . '.php';
+  }
+  include 'components/bottom-nav.php';
 }
 
-if (in_array($page, $page_list)) {
-  include $PAGES_DIR . $page . '.php';
+if (in_array($active_page, $peripheral_pages)) {
+  include $PAGES_DIR . $active_page . '.php';
 }
-/* foreach ($page_list as $active_page) { */
-/*   include $PAGES_DIR . $active_page . '.php'; */
+
+/* if (in_array($page, $page_list)) { */
+/*   include $PAGES_DIR . $page . '.php'; */
 /* } */
-
-include 'components/bottom-nav.php';
 ?>
 
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>
