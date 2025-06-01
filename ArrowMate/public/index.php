@@ -16,7 +16,7 @@
   $database = 's105584279_db';
   $username = 's105584279';
   $password = '210605';
-  $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password);
+  /* $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password); */
 
   $active_page = 'your-scores';
   $request = $_SERVER['REQUEST_URI'];

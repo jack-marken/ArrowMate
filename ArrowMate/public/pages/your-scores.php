@@ -23,7 +23,7 @@
     <hr class="line-break" />
 
     <div class="pad">
-      <button class="card flex-row" data-goto="round-details">
+      <div class="card flex-row">
         <div class="card-section flex-column flex-start">
           <p>27/12/2015</p>
           <p class="text-grey"><i class="fa-solid fa-bullseye"></i> Drake</p>
@@ -31,20 +31,9 @@
         </div>
         <div class="card-section flex-column flex-end">
           <h1>754</h1>
-          <a>View details <i class="bi bi-caret-right-fill"></i></a>
+          <a href="round-details">View details <i class="bi bi-caret-right-fill"></i></a>
         </div>
-      </button>
-      <button class="card flex-row" data-goto="round-details">
-        <div class="card-section flex-column flex-start">
-          <p>27/12/2015</p>
-          <p class="text-grey"><i class="fa-solid fa-bullseye"></i> Launceston</p>
-          <p class="text-grey"><img src="assets/BowAndArrow.svg" class="svg-icon-sm filter-grey" />Recurve</p>
-        </div>
-        <div class="card-section flex-column flex-end">
-          <h1>511</h1>
-          <a>View details <i class="bi bi-caret-right-fill"></i></a>
-        </div>
-      </button>
+      </div>
     </div>
   </main>
 </section>

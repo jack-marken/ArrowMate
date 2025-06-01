@@ -120,7 +120,7 @@ html,body{height:100%;background:var(--white);color:var(--black)}
   width:100%;margin:0 0 1.2rem 0;padding:1rem;
   font-size:1.2rem;
   border:1px solid var(--dark-grey);border-radius:8px;
-  cursor:pointer;color:#000;
+  color:#000;
   background:var(--white);
   /* border:2px solid var(--dark-grey); */
   border-radius:12px;
@@ -145,6 +145,7 @@ html,body{height:100%;background:var(--white);color:var(--black)}
 .card a {
   color: var(--blue);
   align-self: flex-end;
+  text-decoration: none;
 }
 
 .mega-btn{

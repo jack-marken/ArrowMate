@@ -3,16 +3,16 @@
     i just threw some logic into this, could easily be looked back onto and fixed/improved
     im too tired at this point to do anything more with it
 ────────────────────────────────────────────────────────────────────────*/
-const api = async (url, opts = {}) => {
-  try {
-    const res = await fetch(`/api/${url}`, opts);
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    return res.json();
-  } catch (err) {
-    alert(`Network / server error:\n${err.message}`);
-    throw err;
-  }
-};
+// const api = async (url, opts = {}) => {
+//   try {
+//     const res = await fetch(`/api/${url}`, opts);
+//     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+//     return res.json();
+//   } catch (err) {
+//     alert(`Network / server error:\n${err.message}`);
+//     throw err;
+//   }
+// };
 const $ = q => document.querySelector(q);
 
 /*──────────────── GLOBAL STATE & HELPERS ─────────────────────────────*/
