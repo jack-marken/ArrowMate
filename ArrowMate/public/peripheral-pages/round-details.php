@@ -5,9 +5,9 @@
 <!----------------------------------------------------------------
   ROUND DETAILS
 ----------------------------------------------------------------->
-<section id="round-details" class="screen">
+<section id="round-details">
   <header class="hero hero--short hero--simple flex-row">
-    <i class="bi bi-caret-left-fill" data-goto="your-scores"></i>
+    <a href='main?page=your-scores'><i class="bi bi-caret-left-fill"></i></a>
     <h3 class="flex-grow">ROUND&nbsp;DETAILS</h3>
   </header>
   <main class="pad">
@@ -17,6 +17,7 @@
     <p class="text-grey"><img src="assets/BowAndArrow.svg" class="svg-icon-sm filter-grey" />Open Female Recurve</p>
 
     <!-- Javascript handles table creation within scores-section -->
-    <div class="scores-section" />
+    <div class="scores-section"></div>
   </main>
+  <script src="scripts/round-details.js"></script>
 </section>
