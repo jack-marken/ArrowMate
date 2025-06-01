@@ -5,9 +5,6 @@ DEFAULT_HOME_PAGE = 'home';
 // in the URL toggles their '.active' class ('display: none;' -> 'display: flex;')
 
 function SetPage(page) {
-  // lastPartOfUrl = $(location).attr('href').split('/').at(-1);
-  // alert(lastPartOfUrl);
-  // .substring(thePath.lastIndexOf('/') + 1)
   window.history.pushState({ page: page }, "ArrowScores", "?page=" + page);
 }
 

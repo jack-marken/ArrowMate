@@ -5,7 +5,7 @@
 <!-- step-1: details -->
 <section id="archer-range-setup">
   <header class="hero hero--short hero--simple flex-row">
-    <i class="bi bi-caret-left-fill" data-goto="actions"></i>
+    <a href="main?page=join-range"><i class="bi bi-caret-left-fill"></i></a>
     <h3 class="flex-grow">JOIN&nbsp;A&nbsp;RANGE</h3>
   </header>
   <main class="pad">
