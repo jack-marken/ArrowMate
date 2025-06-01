@@ -61,10 +61,10 @@ if ($active_page == 'main') {
     require $HOME_PAGES_DIR . $active_page . '.php';
   }
   require 'components/bottom-nav.php';
+  echo('<script src="scripts/home.js"></script>');
 } elseif (in_array($active_page, $peripheral_pages)) {
   require $PERIPHERAL_PAGES_DIR . $active_page . '.php';
 }
 ?>
-  <script src="scripts/script.js"></script>
 </body>
 </html>
