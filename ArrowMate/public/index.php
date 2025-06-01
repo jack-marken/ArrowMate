@@ -54,19 +54,17 @@
 
 <?php
 $active_page = basename(parse_url($request)['path']);
+$active_page = ($active_page == 'ArrowMate') ? 'main' : $active_page;
 
-if ($active_page == 'ArrowMate') {
+if ($active_page == 'main') {
   foreach ($home_pages as $active_page) {
-    include $HOME_PAGES_DIR . $active_page . '.php';
+    require $HOME_PAGES_DIR . $active_page . '.php';
   }
-  include 'components/bottom-nav.php';
-}
-
-if (in_array($active_page, $peripheral_pages)) {
-  include $PERIPHERAL_PAGES_DIR . $active_page . '.php';
+  require 'components/bottom-nav.php';
+} elseif (in_array($active_page, $peripheral_pages)) {
+  require $PERIPHERAL_PAGES_DIR . $active_page . '.php';
 }
 ?>
-
   <script src="scripts/script.js"></script>
 </body>
 </html>
