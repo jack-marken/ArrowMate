@@ -15,20 +15,19 @@
     'archer-range-setup',
   );
 
+  $active_page = 'your-scores';
+  $request = $_SERVER['REQUEST_URI'];
 
   $database = 's105584279_db';
   $username = 's105584279';
   $password = '210605';
-  /* $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password); */
-
-  $active_page = 'your-scores';
-  $request = $_SERVER['REQUEST_URI'];
+  $dbh = new PDO("mysql:host=feenix-mariadb.swin.edu.au;dbname=$database", $username, $password);
 
   /* -------- QUERY TEMPLATE -------- */
-  /* foreach($dbh->query('SELECT * from Archer') as $row) */
-  /* { */
-  /*    print_r($row); */
-  /* } */
+  foreach($dbh->query('SELECT * from Archer') as $row)
+  {
+     print_r($row);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
