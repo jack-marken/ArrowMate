@@ -13,27 +13,27 @@
 -->
 <nav class="bottom-nav">
   <!-- 1 ▸ HOME -->
-  <a class="nav-btn" href="home">
+  <button class="nav-btn" data-goto="home">
     <i class="fa-solid fa-house"></i>
-  </a>
+  </button>
 
   <!-- 2 ▸ ROUND DETAILS / YOUR SCORES -->
-  <a class="nav-btn" href="your-scores">
+  <button class="nav-btn" data-goto="your-scores">
     <i class="fa-solid fa-clipboard-list"></i>
-  </a>
+  </button>
 
   <!-- 3 ▸ RECORD / JOIN A RANGE (centre target button) -->
-  <a class="nav-btn nav-btn--target center" href="action-picker">
+  <button class="nav-btn nav-btn--target center" data-goto="action-picker">
     <i class="fa-solid fa-bullseye"></i>
-  </a>
+  </button>
 
   <!-- 4 ▸ LEADERBOARD -->
-  <a class="nav-btn" href="leaderboard">
+  <button class="nav-btn" data-goto="leaderboard">
     <i class="fa-solid fa-trophy"></i>
-  </a>
+  </button>
 
   <!-- 5 ▸ PROFILE -->
-  <a class="nav-btn" href="profile">
+  <button class="nav-btn" data-goto="profile">
     <i class="fa-solid fa-user"></i>
-  </a>
+  </button>
 </nav>
