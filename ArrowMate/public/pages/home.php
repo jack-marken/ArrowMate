@@ -2,7 +2,7 @@
 <!----------------------------------------------------------------
   HOME – four-quadrant welcome screen
 ----------------------------------------------------------------->
-<section id="home">
+<section id="home" class="screen">
   <header class="hero hero--navy big-title"><h1>ArrowMate</h1></header>
 
   <main class="home-quad">
