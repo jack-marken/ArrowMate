@@ -27,4 +27,6 @@
       <button id="swap-account" class="primary swap-btn">Swap&nbsp;account</button>
     </div>
   </main>
+  <script>
+  </script>
 </section>

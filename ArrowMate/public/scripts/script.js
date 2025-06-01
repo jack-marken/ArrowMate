@@ -15,3 +15,7 @@ $('.nav-btn').each(function () {
     });
   });
 });
+
+
+/* ------ HOME PAGE ------- */
+// TODO: Time/date/weather

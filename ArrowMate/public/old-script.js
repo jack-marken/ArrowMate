@@ -13,7 +13,7 @@
 //     throw err;
 //   }
 // };
-const $ = q => document.querySelector(q);
+// const $ = q => document.querySelector(q);
 
 /*──────────────── GLOBAL STATE & HELPERS ─────────────────────────────*/
 let currentUser = null;
