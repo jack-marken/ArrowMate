@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+$BASE_DIR = '/cos20031/s105417647/ArrowMate/';
 $users = [
   'Jacob' => '1234',
   'Jack'  => '4321',
@@ -33,12 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div style="margin-top:30px;" class="pad">
   <h2>Users:</h2>
   <h3>Jacob</h3>
-  <p>Username: jacob</p>
+  <p>Username: Jacob</p>
   <p>Password: 1234</p>
   <h3>Jack</h3>
-  <p>Username: jack</p>
+  <p>Username: Jack</p>
   <p>Password: 4321</p>
   <h3>Max</h3>
-  <p>Username: max</p>
+  <p>Username: Max</p>
   <p>Password: 1122</p>
 </div>
