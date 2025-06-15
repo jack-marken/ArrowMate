@@ -8,6 +8,6 @@
 ArrowMate is a mobile-first web application that helps Victorian archers join rounds, record scores, and track personal-best results.
 It runs entirely in the browser as a single-page app (SPA) and communicates with the Swinburne-provided Feenix MariaDB with PHP.
 
-![Demo image - First Layer](docs/first-layer.png)
-
-![Demo image - Archer Page](docs/archer-page.png)
+## Adobe Sketches
+<img src="docs/first-layer.png" width="300px" alt="Demo image - First Layer">
+<img src="docs/archer-page.png" alt="Demo image - Archer Page">
